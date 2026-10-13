@@ -3,227 +3,202 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Noorderlicht Koffiebranderij — Groningen</title>
-<meta name="description" content="Kleine koffiebranderij in Groningen. Vers gebrande specialty koffie, elke week opnieuw. Bestel losse zakken of neem een abonnement.">
+<title>Noorderlicht Koffiebranderij Groningen</title>
+<meta name="description" content="Kleine koffiebranderij aan het Noorderhaven in Groningen. Elke dinsdag vers gebrand, vrijdag bij jou op de mat. Losse zakken of een abonnement.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,800&family=Cabin:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
 <style>
   :root {
-    --color-primary: #7C2D12;
-    --color-on-primary: #FFFFFF;
-    --color-secondary: #B91C1C;
-    --color-accent: #A16207;
-    --color-on-accent: #FFFFFF;
-    --color-background: #FDF8F3;
-    --color-foreground: #2B0A05;
-    --color-card: #FFFFFF;
-    --color-muted: #F3EAE1;
-    --color-muted-foreground: #5B4A42;
-    --color-border: #E8D5C4;
-    --color-ring: #A16207;
-    --color-night: #1C0A06;
-    --color-gold-soft: #E9C46A;
+    --raw: #E4E7D6;
+    --chaff: #D3D8C0;
+    --line: #BCC2A6;
+    --ink: #2B1D14;
+    --ink-soft: #57493D;
+    --cinnamon: #B8742A;
+    --canal: #234B55;
+    --canal-deep: #183840;
+    --paper: #F1F3E8;
 
-    --font-display: "Fraunces", Georgia, serif;
-    --font-body: "Cabin", system-ui, sans-serif;
+    --display: "Big Shoulders Display", "Arial Narrow", sans-serif;
+    --body: "Source Serif 4", Georgia, serif;
 
-    --space-1: 4px; --space-2: 8px; --space-3: 16px; --space-4: 24px;
-    --space-5: 32px; --space-6: 48px; --space-7: 64px; --space-8: 96px;
-    --radius: 14px;
-    --shadow: 0 1px 2px rgba(43,10,5,.06), 0 8px 24px rgba(43,10,5,.08);
-    --ease: cubic-bezier(.22,1,.36,1);
+    --gutter: 16px;
+    --ease: cubic-bezier(.2, .8, .2, 1);
   }
+  @media (min-width: 720px) { :root { --gutter: 40px; } }
+
   *, *::before, *::after { box-sizing: border-box; }
   html { scroll-behavior: smooth; }
   body {
-    margin: 0; background: var(--color-background); color: var(--color-foreground);
-    font-family: var(--font-body); font-size: 17px; line-height: 1.6;
+    margin: 0; background: var(--raw); color: var(--ink);
+    font: 400 18px/1.65 var(--body);
     -webkit-font-smoothing: antialiased;
   }
-  img, svg { display: block; max-width: 100%; }
-  a { color: inherit; }
-  h1, h2, h3 { font-family: var(--font-display); line-height: 1.1; margin: 0; font-weight: 600; letter-spacing: -.01em; text-wrap: balance; }
+  h1, h2, h3 { font-family: var(--display); font-weight: 800; line-height: .9; margin: 0; letter-spacing: .005em; }
   p { margin: 0; text-wrap: pretty; }
-  .wrap { width: min(1160px, 100% - 32px); margin-inline: auto; }
-  .eyebrow { font-size: 13px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--color-accent); }
-  :focus-visible { outline: 3px solid var(--color-ring); outline-offset: 3px; border-radius: 6px; }
+  a { color: inherit; }
+  svg { display: block; }
+  .wrap { width: min(1240px, 100% - 2 * var(--gutter)); margin-inline: auto; }
+  :focus-visible { outline: 3px solid var(--cinnamon); outline-offset: 3px; }
   .skip { position: absolute; left: -9999px; }
-  .skip:focus { left: 16px; top: 16px; z-index: 100; background: var(--color-card); padding: 8px 14px; }
+  .skip:focus { left: 16px; top: 16px; z-index: 50; background: var(--paper); padding: 8px 14px; }
 
-  /* Buttons */
   .btn {
-    display: inline-flex; align-items: center; gap: 10px; min-height: 48px; padding: 0 24px;
-    border-radius: 999px; font: 600 16px/1 var(--font-body); text-decoration: none; cursor: pointer;
-    border: 2px solid transparent; transition: transform .2s var(--ease), background-color .2s, color .2s, border-color .2s;
+    display: inline-flex; align-items: center; justify-content: center; min-height: 50px; padding: 0 26px;
+    font: 600 21px/1 var(--display); letter-spacing: .02em; text-decoration: none; cursor: pointer;
+    border: 2px solid var(--canal); border-radius: 4px; background: var(--canal); color: #fff;
+    transition: background-color .15s, color .15s;
   }
-  .btn:hover { transform: translateY(-2px); }
-  .btn:active { transform: translateY(0); }
-  .btn-primary { background: var(--color-primary); color: var(--color-on-primary); }
-  .btn-primary:hover { background: #64230E; }
-  .btn-ghost { border-color: currentColor; color: inherit; background: transparent; }
-  .btn-ghost:hover { background: rgba(255,255,255,.08); }
-  .btn svg { width: 18px; height: 18px; }
+  .btn:hover { background: var(--canal-deep); border-color: var(--canal-deep); }
+  .btn.quiet { background: transparent; color: var(--canal); }
+  .btn.quiet:hover { background: var(--canal); color: #fff; }
 
   /* Nav */
-  .nav { position: sticky; top: 0; z-index: 50; background: rgba(253,248,243,.85); backdrop-filter: blur(10px); border-bottom: 1px solid transparent; transition: border-color .2s; }
-  .nav.scrolled { border-color: var(--color-border); }
-  .nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 72px; }
-  .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; font-family: var(--font-display); font-weight: 800; font-size: 20px; }
-  .logo svg { width: 34px; height: 34px; }
-  .nav-links { display: flex; gap: var(--space-5); list-style: none; margin: 0; padding: 0; }
-  .nav-links a { text-decoration: none; font-weight: 500; padding: 10px 0; position: relative; }
-  .nav-links a::after { content: ""; position: absolute; left: 0; right: 0; bottom: 4px; height: 2px; background: var(--color-accent); transform: scaleX(0); transform-origin: left; transition: transform .25s var(--ease); }
-  .nav-links a:hover::after { transform: scaleX(1); }
-  .nav .btn { min-height: 44px; padding: 0 20px; font-size: 15px; }
-  .menu-btn { display: none; width: 44px; height: 44px; border: 0; background: none; cursor: pointer; color: inherit; }
-  @media (max-width: 820px) {
-    .nav-links, .nav .btn-primary { display: none; }
-    .menu-btn { display: grid; place-items: center; }
-    .nav.open .nav-links { display: flex; flex-direction: column; gap: 0; position: absolute; top: 72px; left: 0; right: 0; background: var(--color-background); border-bottom: 1px solid var(--color-border); padding: 8px 16px 16px; }
-    .nav.open .nav-links a { display: block; padding: 14px 0; font-size: 18px; }
-  }
+  .nav { position: sticky; top: 0; z-index: 20; background: var(--raw); border-bottom: 1px solid transparent; transition: border-color .2s; }
+  .nav.scrolled { border-bottom-color: var(--line); }
+  .nav .wrap { display: flex; align-items: center; gap: 32px; min-height: 68px; }
+  .wordmark { font: 800 28px/1 var(--display); text-decoration: none; letter-spacing: .01em; }
+  .nav ul { display: flex; gap: 28px; list-style: none; margin: 0 0 0 auto; padding: 0; }
+  .nav ul a { text-decoration: none; font-size: 17px; }
+  .nav ul a:hover { text-decoration: underline; text-underline-offset: 4px; }
+  .nav .btn { min-height: 42px; font-size: 18px; padding: 0 18px; }
+  @media (max-width: 760px) { .nav ul { display: none; } .nav .btn { margin-left: auto; } }
 
   /* Hero */
-  .hero { position: relative; overflow: hidden; background: var(--color-night); color: #FBEFE4; }
-  .hero .wrap { display: grid; grid-template-columns: 1.1fr .9fr; gap: var(--space-6); align-items: center; padding-block: var(--space-8); min-height: min(720px, 88vh); }
-  .hero h1 { font-size: clamp(44px, 7vw, 88px); font-weight: 800; }
-  .hero h1 em { font-style: italic; font-weight: 400; color: var(--color-gold-soft); }
-  .hero p.lead { font-size: clamp(18px, 2vw, 21px); color: #E6D3C4; max-width: 34ch; margin-top: var(--space-4); }
-  .hero .eyebrow { color: var(--color-gold-soft); }
-  .hero-actions { display: flex; flex-wrap: wrap; gap: var(--space-3); margin-top: var(--space-5); }
-  .hero .btn-primary { background: var(--color-gold-soft); color: var(--color-night); }
-  .hero .btn-primary:hover { background: #F2D58E; }
-  .aurora { position: absolute; inset: -20% -10% auto; height: 80%; pointer-events: none; filter: blur(60px); opacity: .55;
-    background: radial-gradient(40% 50% at 70% 40%, #A16207 0%, transparent 70%), radial-gradient(35% 45% at 30% 20%, #7C2D12 0%, transparent 70%), radial-gradient(30% 40% at 85% 10%, #3F6E5A 0%, transparent 70%);
-    animation: drift 18s ease-in-out infinite alternate; }
-  @keyframes drift { to { transform: translate3d(-4%, 6%, 0) scale(1.08); } }
-  .hero-art { position: relative; aspect-ratio: 1; max-width: 460px; justify-self: center; width: 100%; }
-  .hero-art svg { width: 100%; height: 100%; }
-  .bean-spin { transform-origin: 50% 50%; animation: spin 60s linear infinite; }
-  @keyframes spin { to { transform: rotate(360deg); } }
-  .stamp { position: absolute; right: 0; bottom: 6%; background: var(--color-background); color: var(--color-foreground); border-radius: var(--radius); padding: 14px 18px; box-shadow: var(--shadow); font-size: 14px; line-height: 1.35; }
-  .stamp strong { display: block; font-family: var(--font-display); font-size: 22px; color: var(--color-primary); }
-  @media (max-width: 820px) {
-    .hero .wrap { grid-template-columns: 1fr; padding-block: var(--space-7); min-height: auto; }
-    .hero-art { max-width: 300px; }
+  .hero { padding: 48px 0 0; }
+  .hero h1 { font-size: clamp(60px, 9.4vw, 152px); }
+  .hero h1 span { display: block; }
+  .hero-foot { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: 24px 48px; margin-top: 32px; }
+  .hero-foot p { max-width: 46ch; color: var(--ink-soft); font-size: 19px; }
+  .hero-foot .actions { display: flex; flex-wrap: wrap; gap: 12px; }
+
+  .curve { margin: 56px 0 0; border-top: 2px solid var(--ink); padding-top: 14px; }
+  .curve-head { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px; font-size: 16px; color: var(--ink-soft); }
+  .curve-head strong { color: var(--ink); font-weight: 600; }
+  .readout { font: 800 clamp(40px, 6vw, 72px)/1 var(--display); color: var(--ink); font-variant-numeric: tabular-nums; }
+  .readout small { font-size: .45em; font-weight: 600; margin-left: 4px; color: var(--ink-soft); }
+  .curve-box { display: grid; grid-template-columns: auto 1fr; gap: 24px; align-items: end; }
+  .curve svg { width: 100%; height: auto; overflow: visible; }
+  .curve .grid line { stroke: var(--line); stroke-width: 1; }
+  .curve .axis text { font: 400 14px var(--body); fill: var(--ink-soft); }
+  .curve .mark line { stroke: var(--ink); stroke-width: 1; stroke-dasharray: 3 4; }
+  .curve .mark text { font: 600 17px var(--display); fill: var(--ink); letter-spacing: .02em; }
+  .curve .mark { opacity: 0; transition: opacity .4s; }
+  .curve .mark.on { opacity: 1; }
+  @media (max-width: 640px) {
+    .curve-box { grid-template-columns: 1fr; }
+    .curve .axis text { font-size: 22px; }
+    .curve .mark text { font-size: 26px; }
   }
 
-  /* Marquee */
-  .ticker { background: var(--color-accent); color: var(--color-on-accent); overflow: hidden; white-space: nowrap; }
-  .ticker-track { display: inline-flex; gap: var(--space-6); padding: 14px 0; animation: scroll 32s linear infinite; font-weight: 600; letter-spacing: .04em; }
-  .ticker-track span::before { content: "✦"; margin-right: var(--space-6); opacity: .7; }
-  @keyframes scroll { to { transform: translateX(-50%); } }
+  section { padding: 112px 0 0; }
+  .head { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 16px 48px; align-items: end; margin-bottom: 40px; }
+  .head h2 { font-size: clamp(48px, 7vw, 96px); }
+  .head p { color: var(--ink-soft); max-width: 48ch; }
+  @media (max-width: 760px) { .head { grid-template-columns: 1fr; } }
 
-  /* Sections */
-  section { padding-block: var(--space-8); }
-  .section-head { display: flex; justify-content: space-between; align-items: end; gap: var(--space-4); flex-wrap: wrap; margin-bottom: var(--space-6); }
-  .section-head h2 { font-size: clamp(34px, 4.5vw, 54px); margin-top: var(--space-2); max-width: 16ch; }
-  .section-head p { max-width: 42ch; color: var(--color-muted-foreground); }
+  /* Coffee list */
+  .filters { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 8px; }
+  .chip {
+    min-height: 44px; padding: 0 18px; border: 1.5px solid var(--ink); border-radius: 22px; background: transparent;
+    font: 400 17px var(--body); color: var(--ink); cursor: pointer;
+  }
+  .chip[aria-pressed="true"] { background: var(--ink); color: var(--raw); }
+  .beans { list-style: none; margin: 0; padding: 0; border-top: 2px solid var(--ink); }
+  .bean {
+    display: grid; grid-template-columns: 56px minmax(0, 1.3fr) minmax(0, 1.2fr) 150px auto; gap: 8px 28px; align-items: center;
+    padding: 22px 0; border-bottom: 1px solid var(--line);
+  }
+  .bean[hidden] { display: none; }
+  .bean h3 { font-size: 34px; font-weight: 800; }
+  .bean .origin { font-size: 16px; color: var(--ink-soft); margin-top: 4px; }
+  .bean .notes { font-style: italic; }
+  .bean .roastlvl { font-size: 15px; color: var(--ink-soft); }
+  .bean .roastlvl b { display: block; font: 600 20px var(--display); color: var(--ink); }
+  .bean .buy { display: flex; align-items: center; gap: 16px; justify-self: end; }
+  .bean .price { font: 600 26px var(--display); white-space: nowrap; }
+  .bean .price small { font: 400 14px var(--body); color: var(--ink-soft); }
+  .add { min-height: 44px; padding: 0 16px; border: 1.5px solid var(--canal); border-radius: 4px; background: transparent; color: var(--canal); font: 600 18px var(--display); cursor: pointer; min-width: 112px; }
+  .add:hover { background: var(--canal); color: #fff; }
+  .add.done { background: var(--canal); color: #fff; }
+  .bean-dot { width: 44px; height: 56px; }
+  .tag { display: inline-block; margin-left: 10px; vertical-align: 6px; font: 400 14px var(--body); padding: 1px 9px; border: 1px solid var(--cinnamon); color: #7A4A14; border-radius: 12px; }
+  @media (max-width: 900px) {
+    .bean { grid-template-columns: 44px 1fr; }
+    .bean .notes, .bean .roastlvl, .bean .buy { grid-column: 2; }
+    .bean .buy { justify-self: start; }
+  }
 
-  /* Values */
-  .values { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-4); }
-  .value { padding: var(--space-5); border-radius: var(--radius); background: var(--color-muted); }
-  .value .icon { width: 52px; height: 52px; border-radius: 12px; display: grid; place-items: center; background: var(--color-primary); color: #fff; margin-bottom: var(--space-4); }
-  .value .icon svg { width: 26px; height: 26px; }
-  .value h3 { font-size: 24px; margin-bottom: var(--space-2); }
-  .value p { color: var(--color-muted-foreground); }
-
-  /* Coffees */
-  .coffees-bg { background: var(--color-muted); }
-  .filters { display: flex; gap: var(--space-2); flex-wrap: wrap; }
-  .chip { min-height: 44px; padding: 0 18px; border-radius: 999px; border: 1.5px solid var(--color-border); background: var(--color-card); font: 600 15px var(--font-body); color: var(--color-foreground); cursor: pointer; transition: background-color .2s, color .2s, border-color .2s; }
-  .chip:hover { border-color: var(--color-primary); }
-  .chip[aria-pressed="true"] { background: var(--color-primary); border-color: var(--color-primary); color: #fff; }
-  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: var(--space-4); }
-  .card { background: var(--color-card); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); display: flex; flex-direction: column; transition: transform .3s var(--ease), box-shadow .3s; }
-  .card:hover { transform: translateY(-6px); box-shadow: 0 2px 4px rgba(43,10,5,.06), 0 20px 40px rgba(43,10,5,.14); }
-  .card[hidden] { display: none; }
-  .bag { aspect-ratio: 4/3; display: grid; place-items: center; position: relative; }
-  .bag svg { width: 46%; height: auto; filter: drop-shadow(0 12px 18px rgba(0,0,0,.25)); }
-  .bag .tag { position: absolute; top: 14px; left: 14px; background: rgba(255,255,255,.9); color: var(--color-foreground); font-size: 13px; font-weight: 700; padding: 4px 10px; border-radius: 999px; }
-  .card-body { padding: var(--space-4); display: flex; flex-direction: column; gap: var(--space-2); flex: 1; }
-  .card-body h3 { font-size: 26px; }
-  .origin { font-size: 14px; color: var(--color-muted-foreground); font-weight: 500; }
-  .notes { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 4px; }
-  .notes li { list-style: none; font-size: 13px; font-weight: 600; padding: 3px 10px; border-radius: 999px; background: var(--color-muted); color: var(--color-primary); }
-  .notes { padding: 0; margin-bottom: 0; }
-  .roast { display: flex; align-items: center; gap: 10px; font-size: 13px; color: var(--color-muted-foreground); margin-top: var(--space-2); }
-  .roast-bar { flex: 1; height: 6px; border-radius: 999px; background: var(--color-muted); overflow: hidden; }
-  .roast-bar i { display: block; height: 100%; background: linear-gradient(90deg, #C98B4A, #3B160A); border-radius: inherit; }
-  .card-foot { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: var(--space-3); }
-  .price { font-family: var(--font-display); font-size: 24px; font-weight: 600; }
-  .price small { font-family: var(--font-body); font-size: 13px; color: var(--color-muted-foreground); font-weight: 400; }
-  .add { width: 48px; height: 48px; border-radius: 50%; border: 0; background: var(--color-primary); color: #fff; display: grid; place-items: center; cursor: pointer; transition: transform .2s var(--ease), background-color .2s; }
-  .add:hover { background: #64230E; transform: rotate(90deg); }
-  .add.done { background: #3F6E5A; transform: none; }
-  .add svg { width: 22px; height: 22px; }
-
-  /* Process */
-  .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-4); counter-reset: step; }
-  .step { position: relative; padding-top: var(--space-5); border-top: 2px solid var(--color-border); }
-  .step::before { counter-increment: step; content: "0" counter(step); position: absolute; top: -14px; left: 0; background: var(--color-background); padding-right: 12px; font-family: var(--font-display); font-weight: 800; font-size: 22px; color: var(--color-accent); }
-  .step h3 { font-size: 22px; margin-bottom: var(--space-2); }
-  .step p { color: var(--color-muted-foreground); font-size: 16px; }
+  /* Week */
+  .week { display: grid; grid-template-columns: repeat(5, 1fr); border-top: 2px solid var(--ink); }
+  .day { padding: 20px 24px 8px 0; }
+  .day + .day { padding-left: 24px; border-left: 1px solid var(--line); }
+  .day h3 { font-size: 36px; }
+  .day .what { font: 600 20px var(--display); color: var(--cinnamon); margin: 6px 0 12px; letter-spacing: .02em; }
+  .day p { font-size: 16px; color: var(--ink-soft); }
+  .day.you { background: var(--chaff); padding-right: 16px; }
+  .day.you .what { color: var(--canal); }
+  @media (max-width: 900px) {
+    .week { grid-template-columns: 1fr; }
+    .day, .day + .day { padding: 20px 0; border-left: 0; border-bottom: 1px solid var(--line); }
+    .day.you { padding-inline: 16px; }
+  }
 
   /* Subscription */
-  .sub { background: var(--color-primary); color: #FBEFE4; border-radius: 28px; padding: clamp(32px, 6vw, 72px); display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-6); align-items: center; position: relative; overflow: hidden; }
-  .sub::after { content: ""; position: absolute; width: 420px; height: 420px; right: -120px; top: -160px; border-radius: 50%; background: radial-gradient(circle, rgba(233,196,106,.35), transparent 70%); pointer-events: none; }
-  .sub h2 { font-size: clamp(32px, 4vw, 48px); }
-  .sub .eyebrow { color: var(--color-gold-soft); }
-  .sub p { color: #EAD7C8; margin-top: var(--space-3); }
-  .perks { list-style: none; padding: 0; margin: var(--space-4) 0 0; display: grid; gap: 10px; }
-  .perks li { display: flex; gap: 10px; align-items: center; }
-  .perks svg { width: 20px; height: 20px; color: var(--color-gold-soft); flex: none; }
-  form.signup { background: var(--color-background); color: var(--color-foreground); padding: var(--space-5); border-radius: 20px; display: grid; gap: var(--space-3); position: relative; z-index: 1; }
-  .field { display: grid; gap: 6px; }
-  .field label, fieldset legend { font-weight: 600; font-size: 15px; }
-  .field input { min-height: 48px; padding: 0 14px; border-radius: 10px; border: 1.5px solid var(--color-border); font: 16px var(--font-body); background: #fff; color: var(--color-foreground); }
-  .field input:focus-visible { outline: 3px solid var(--color-ring); outline-offset: 1px; border-color: var(--color-ring); }
-  .field input[aria-invalid="true"] { border-color: var(--color-secondary); }
-  .error { color: var(--color-secondary); font-size: 14px; min-height: 1em; }
-  fieldset { border: 0; padding: 0; margin: 0; }
-  .freq { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 6px; }
+  .sub { background: var(--ink); color: var(--raw); padding: 112px 0; margin-top: 112px; }
+  .sub .wrap { display: grid; grid-template-columns: 1fr minmax(0, 480px); gap: 56px; align-items: start; }
+  .sub h2 { font-size: clamp(56px, 8vw, 112px); }
+  .sub .intro p { margin-top: 24px; max-width: 42ch; color: #CFC7BC; }
+  .sub ul { margin: 28px 0 0; padding: 0; list-style: none; }
+  .sub li { padding: 12px 0; border-top: 1px solid #4A3B30; }
+  .sub li:last-child { border-bottom: 1px solid #4A3B30; }
+  form { display: grid; gap: 20px; }
+  fieldset { border: 0; margin: 0; padding: 0; }
+  legend, label { font-weight: 600; font-size: 16px; }
+  .freq { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 8px; }
   .freq input { position: absolute; opacity: 0; pointer-events: none; }
-  .freq label { display: grid; place-items: center; text-align: center; min-height: 64px; border: 1.5px solid var(--color-border); border-radius: 10px; cursor: pointer; font-size: 14px; line-height: 1.3; background: #fff; transition: border-color .2s, background-color .2s; }
-  .freq label b { font-size: 16px; }
-  .freq input:checked + label { border-color: var(--color-primary); background: #FBEDE5; }
-  .freq input:focus-visible + label { outline: 3px solid var(--color-ring); outline-offset: 2px; }
-  .success { display: none; text-align: center; padding: var(--space-4) 0; }
-  .success svg { width: 56px; height: 56px; margin: 0 auto var(--space-3); color: #3F6E5A; }
-  .success h3 { font-size: 28px; margin-bottom: 6px; }
-  form.signup.sent > :not(.success) { display: none; }
-  form.signup.sent .success { display: block; }
-  @media (max-width: 900px) { .sub { grid-template-columns: 1fr; } .steps { grid-template-columns: 1fr 1fr; row-gap: var(--space-6); } .values { grid-template-columns: 1fr; } }
-  @media (max-width: 520px) { .steps { grid-template-columns: 1fr; } }
+  .freq label { display: block; padding: 12px 10px; border: 1.5px solid #6A5A4C; border-radius: 4px; cursor: pointer; font-weight: 400; line-height: 1.3; }
+  .freq label b { display: block; font: 600 22px var(--display); }
+  .freq input:checked + label { border-color: var(--raw); background: var(--raw); color: var(--ink); }
+  .freq input:focus-visible + label { outline: 3px solid var(--cinnamon); outline-offset: 2px; }
+  .field { display: grid; gap: 6px; }
+  .field input { min-height: 50px; padding: 0 14px; border: 1.5px solid #6A5A4C; border-radius: 4px; background: #3A2A1F; color: var(--raw); font: 18px var(--body); }
+  .field input:focus-visible { border-color: var(--raw); }
+  .field input[aria-invalid="true"] { border-color: #E9A36A; }
+  .error { color: #F0B585; font-size: 15px; min-height: 1.2em; }
+  .sub .btn { background: var(--raw); color: var(--ink); border-color: var(--raw); }
+  .sub .btn:hover { background: #fff; border-color: #fff; }
+  .success { display: none; }
+  .success h3 { font-size: 48px; margin-bottom: 12px; }
+  form.sent > :not(.success) { display: none; }
+  form.sent .success { display: block; }
+  @media (max-width: 900px) { .sub .wrap { grid-template-columns: 1fr; } }
 
   /* Visit */
-  .visit { display: grid; grid-template-columns: 1.2fr 1fr; gap: var(--space-6); align-items: stretch; }
-  .map { border-radius: var(--radius); background: var(--color-muted); min-height: 320px; position: relative; overflow: hidden; }
-  .map svg { position: absolute; inset: 0; width: 100%; height: 100%; }
-  .hours { display: grid; gap: 0; margin-top: var(--space-4); }
-  .hours div { display: flex; justify-content: space-between; padding: 12px 0; border-bottom: 1px solid var(--color-border); }
-  .hours .today { font-weight: 700; color: var(--color-primary); }
-  .visit address { font-style: normal; margin-top: var(--space-3); color: var(--color-muted-foreground); }
-  @media (max-width: 820px) { .visit { grid-template-columns: 1fr; } }
+  .visit { padding: 112px 0; }
+  .visit .wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; }
+  .visit h2 { font-size: clamp(48px, 7vw, 96px); }
+  .visit address { font-style: normal; margin-top: 20px; font-size: 20px; }
+  .hours { border-top: 2px solid var(--ink); }
+  .hours div { display: flex; justify-content: space-between; gap: 16px; padding: 14px 0; border-bottom: 1px solid var(--line); }
+  .hours .today { font-weight: 600; }
+  .hours .today span:first-child::after { content: " (vandaag)"; font-weight: 400; color: var(--ink-soft); }
+  @media (max-width: 760px) { .visit .wrap { grid-template-columns: 1fr; } }
 
-  /* Footer */
-  footer { background: var(--color-night); color: #CDB8A8; padding-block: var(--space-6); font-size: 15px; }
-  footer .wrap { display: flex; justify-content: space-between; gap: var(--space-4); flex-wrap: wrap; align-items: center; }
-  footer .logo { color: #FBEFE4; }
+  footer { border-top: 1px solid var(--line); padding: 28px 0 40px; font-size: 15px; color: var(--ink-soft); }
+  footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; }
 
-  /* Cart toast */
-  .toast { position: fixed; left: 50%; bottom: 24px; transform: translate(-50%, 140%); background: var(--color-foreground); color: #fff; padding: 14px 20px; border-radius: 999px; box-shadow: var(--shadow); font-weight: 500; visibility: hidden; transition: transform .35s var(--ease), visibility 0s .35s; z-index: 60; display: flex; gap: 10px; align-items: center; }
-  .toast.show { transform: translate(-50%, 0); visibility: visible; transition: transform .35s var(--ease); }
-  .cart-count { display: inline-grid; place-items: center; min-width: 22px; height: 22px; padding: 0 6px; border-radius: 999px; background: var(--color-gold-soft); color: var(--color-night); font-size: 13px; font-weight: 700; }
-
-  /* Reveal */
-  .reveal { opacity: 0; transform: translateY(24px); transition: opacity .7s var(--ease), transform .7s var(--ease); }
-  .reveal.in { opacity: 1; transform: none; }
+  .toast {
+    position: fixed; left: 50%; bottom: 24px; transform: translate(-50%, 160%); visibility: hidden;
+    background: var(--ink); color: var(--raw); padding: 14px 22px; border-radius: 4px; font-size: 17px;
+    display: flex; gap: 14px; align-items: center;
+  }
+  .toast.show { transform: translate(-50%, 0); visibility: visible; transition: transform .3s var(--ease); }
+  .toast b { font-family: var(--display); font-size: 20px; }
 
   @media (prefers-reduced-motion: reduce) {
-    *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
-    .reveal { opacity: 1; transform: none; }
+    *, *::before, *::after { transition: none !important; scroll-behavior: auto !important; }
   }
 </style>
 </head>
@@ -232,183 +207,139 @@
 
 <header class="nav" id="nav">
   <div class="wrap">
-    <a class="logo" href="#top" aria-label="Noorderlicht Koffiebranderij, naar boven">
-      <svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="19" fill="#7C2D12"/><path d="M20 8c-6 4-6 20 0 24 6-4 6-20 0-24Z" fill="#E9C46A"/><path d="M20 9c-2 6 2 16 0 22" stroke="#7C2D12" stroke-width="1.6" fill="none" stroke-linecap="round"/></svg>
-      Noorderlicht
-    </a>
-    <ul class="nav-links" id="nav-links">
+    <a class="wordmark" href="#top">Noorderlicht</a>
+    <ul>
       <li><a href="#koffie">Koffie</a></li>
-      <li><a href="#proces">Hoe we branden</a></li>
+      <li><a href="#week">Onze week</a></li>
       <li><a href="#abonnement">Abonnement</a></li>
-      <li><a href="#bezoek">Bezoek ons</a></li>
+      <li><a href="#bezoek">Bezoek</a></li>
     </ul>
-    <a class="btn btn-primary" href="#abonnement">Probeer een maand</a>
-    <button class="menu-btn" id="menu-btn" aria-label="Menu openen" aria-expanded="false" aria-controls="nav-links">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
-    </button>
+    <a class="btn" href="#abonnement">Probeer een maand</a>
   </div>
 </header>
 
 <main id="main">
-  <section class="hero" id="top" style="padding:0">
-    <div class="aurora" aria-hidden="true"></div>
+  <section class="hero" id="top">
+    <div class="wrap">
+      <h1><span>Dinsdag branden we.</span> <span>Vrijdag drink jij.</span></h1>
+      <div class="hero-foot">
+        <p>Een kleine branderij aan het Noorderhaven in Groningen. We kopen direct bij boeren die we kennen, branden in kleine batches en sturen je koffie op als hij hooguit vier dagen oud is.</p>
+        <div class="actions">
+          <a class="btn" href="#koffie">Bekijk de koffie</a>
+          <a class="btn quiet" href="#abonnement">Neem een abonnement</a>
+        </div>
+      </div>
+
+      <figure class="curve" aria-labelledby="curve-cap">
+        <div class="curve-head">
+          <span id="curve-cap"><strong>Batch 214, Guji Hambela.</strong> Deze week gebrand door Henk, onze Giesen uit 1987.</span>
+          <span>Temperatuur van de bonen in de trommel</span>
+        </div>
+        <div class="curve-box">
+          <p class="readout" aria-hidden="true"><span id="temp">200</span><small>°C</small><br><small id="clock" style="margin:0">0:00</small></p>
+          <svg id="chart" viewBox="0 0 1200 380" role="img" aria-label="Brandcurve: de bonen gaan de trommel in op 200 graden, zakken naar 90, worden geel na bijna 5 minuten, kraken voor het eerst na ruim 9 minuten en gaan er na 11 minuten 40 uit op 205 graden.">
+            <defs>
+              <linearGradient id="roast" gradientUnits="userSpaceOnUse" x1="60" y1="0" x2="1160" y2="0">
+                <stop offset="0" stop-color="#8E9A6A"/>
+                <stop offset=".38" stop-color="#C8A24A"/>
+                <stop offset=".62" stop-color="#B8742A"/>
+                <stop offset=".85" stop-color="#6B3A1E"/>
+                <stop offset="1" stop-color="#2B1D14"/>
+              </linearGradient>
+            </defs>
+            <g class="grid" id="grid"></g>
+            <g class="axis" id="axis"></g>
+            <g id="marks"></g>
+            <path id="line" fill="none" stroke="url(#roast)" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle id="dot" r="9" fill="#2B1D14" stroke="#E4E7D6" stroke-width="3" opacity="0"/>
+          </svg>
+        </div>
+      </figure>
+    </div>
+  </section>
+
+  <section id="koffie">
+    <div class="wrap">
+      <div class="head">
+        <h2>Deze week uit de trommel</h2>
+        <p>Zes bonen, elk met een eigen brandprofiel. We betalen gemiddeld 2,4 keer de beursprijs en proeven elke partij blind voordat hij erin mag.</p>
+      </div>
+      <div class="filters" role="group" aria-label="Filter op smaak">
+        <button class="chip" aria-pressed="true" data-filter="alle">Alles</button>
+        <button class="chip" aria-pressed="false" data-filter="fruitig">Fruitig</button>
+        <button class="chip" aria-pressed="false" data-filter="chocolade">Chocolade</button>
+        <button class="chip" aria-pressed="false" data-filter="espresso">Voor espresso</button>
+      </div>
+      <ul class="beans" id="beans"></ul>
+    </div>
+  </section>
+
+  <section id="week">
+    <div class="wrap">
+      <div class="head">
+        <h2>Zo gaat een week</h2>
+        <p>Nooit op voorraad. Wat je bestelt voor maandagavond, zit vrijdag in je brievenbus.</p>
+      </div>
+      <ol class="week" style="list-style:none;padding:0;margin:0">
+        <li class="day"><h3>Maandag</h3><p class="what">Proeven</p><p>We cuppen elke nieuwe partij blind. Onder de 85 punten gaat hij terug.</p></li>
+        <li class="day"><h3>Dinsdag</h3><p class="what">Branden</p><p>Batches van 12 kilo. Henk draait vanaf zes uur 's ochtends.</p></li>
+        <li class="day"><h3>Woensdag</h3><p class="what">Rusten</p><p>De bonen ontgassen een dag. Daarna wegen en met de hand sealen.</p></li>
+        <li class="day"><h3>Donderdag</h3><p class="what">Versturen</p><p>PostNL haalt om vier uur op, in zakken die bij het gft mogen.</p></li>
+        <li class="day you"><h3>Vrijdag</h3><p class="what">Bij jou</p><p>Op de mat, met een briefje over de boer en hoe je hem zet.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="sub" id="abonnement">
+    <div class="wrap">
+      <div class="intro">
+        <h2>Elke keer een andere boon</h2>
+        <p>Wij kiezen, jij proeft. Pauzeren of stoppen doe je zelf in je account, wanneer je wilt.</p>
+        <ul>
+          <li>Eerste maand voor €9</li>
+          <li>15% korting op elke zak</li>
+          <li>Verzending altijd gratis</li>
+        </ul>
+      </div>
+      <form id="signup" novalidate>
+        <fieldset>
+          <legend>Hoe vaak wil je koffie?</legend>
+          <div class="freq">
+            <input type="radio" name="freq" id="f1" value="week"><label for="f1"><b>Elke week</b>250 gram</label>
+            <input type="radio" name="freq" id="f2" value="2weken" checked><label for="f2"><b>Om de week</b>500 gram</label>
+            <input type="radio" name="freq" id="f4" value="maand"><label for="f4"><b>Elke maand</b>1 kilo</label>
+          </div>
+        </fieldset>
+        <div class="field">
+          <label for="naam">Naam</label>
+          <input id="naam" name="naam" autocomplete="name" aria-describedby="naam-err">
+          <span class="error" id="naam-err" aria-live="polite"></span>
+        </div>
+        <div class="field">
+          <label for="email">E-mailadres</label>
+          <input id="email" name="email" type="email" autocomplete="email" inputmode="email" aria-describedby="email-err">
+          <span class="error" id="email-err" aria-live="polite"></span>
+        </div>
+        <button class="btn" type="submit">Start voor €9</button>
+        <div class="success" role="status">
+          <h3>Gestart, <span id="who"></span></h3>
+          <p>Je eerste zak gaat dinsdag de trommel in. De bevestiging staat in je mail.</p>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <section class="visit" id="bezoek">
     <div class="wrap">
       <div>
-        <p class="eyebrow">Kleine branderij · Groningen</p>
-        <h1>Koffie die je <em>wakker</em> kust.</h1>
-        <p class="lead">Elke dinsdag branden we kleine batches specialty koffie, rechtstreeks gekocht bij boeren die we bij naam kennen. Op vrijdag ligt hij bij jou op de mat.</p>
-        <div class="hero-actions">
-          <a class="btn btn-primary" href="#koffie">Ontdek de bonen
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-          </a>
-          <a class="btn btn-ghost" href="#proces">Hoe we branden</a>
-        </div>
+        <h2>Kom proeven</h2>
+        <address>Noorderhaven 42<br>9712 VM Groningen</address>
+        <p style="margin-top:16px;color:var(--ink-soft);max-width:40ch">Elke zaterdag om 11:00 een gratis cupping aan de grote tafel. Aanmelden hoeft niet.</p>
       </div>
-      <div class="hero-art" aria-hidden="true">
-        <svg viewBox="0 0 400 400">
-          <defs>
-            <radialGradient id="cup" cx="50%" cy="40%" r="60%"><stop offset="0" stop-color="#5A2412"/><stop offset="1" stop-color="#1C0A06"/></radialGradient>
-            <path id="circle" d="M200,200 m-160,0 a160,160 0 1,1 320,0 a160,160 0 1,1 -320,0"/>
-          </defs>
-          <g class="bean-spin">
-            <text font-family="Cabin" font-weight="700" font-size="15" letter-spacing="7" fill="#E9C46A"><textPath href="#circle">VERS GEBRAND · ELKE DINSDAG · GRONINGEN · SINDS 2019 ·</textPath></text>
-          </g>
-          <circle cx="200" cy="200" r="128" fill="#FBEFE4"/>
-          <circle cx="200" cy="200" r="108" fill="url(#cup)"/>
-          <path d="M150 190c20-26 80-26 100 0-8 30-32 44-50 30-18 14-42 0-50-30Z" fill="#C98B4A" opacity=".85"/>
-          <path d="M200 168c-6 14-6 36 0 52" stroke="#5A2412" stroke-width="5" fill="none" stroke-linecap="round"/>
-          <path d="M176 158c-10-14 6-22-2-38M224 158c-10-14 6-22-2-38" stroke="#FBEFE4" stroke-width="4" fill="none" stroke-linecap="round" opacity=".5"/>
-        </svg>
-        <div class="stamp"><strong>4 dagen</strong>van brander tot brievenbus</div>
-      </div>
-    </div>
-  </section>
-
-  <div class="ticker" aria-hidden="true">
-    <div class="ticker-track">
-      <span>Ethiopië · Guji</span><span>Colombia · Huila</span><span>Kenia · Nyeri</span><span>Brazilië · Cerrado</span><span>Guatemala · Huehuetenango</span><span>Rwanda · Nyamasheke</span>
-      <span>Ethiopië · Guji</span><span>Colombia · Huila</span><span>Kenia · Nyeri</span><span>Brazilië · Cerrado</span><span>Guatemala · Huehuetenango</span><span>Rwanda · Nyamasheke</span>
-    </div>
-  </div>
-
-  <section>
-    <div class="wrap">
-      <div class="section-head reveal">
-        <div><p class="eyebrow">Waarom Noorderlicht</p><h2>Drie dingen die we nooit overslaan</h2></div>
-      </div>
-      <div class="values">
-        <article class="value reveal">
-          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 20h10M10 20c5.5-2.5.8-6.4 3-10"/><path d="M9.5 9.4c1.1.8 1.8 2.2 2.3 3.7-2 .4-3.5.4-4.8-.3-1.2-.6-2.3-1.9-3-4.2 2.8-.5 4.4 0 5.5.8z"/><path d="M14.1 6a7 7 0 0 0-1.1 4c1.9-.1 3.3-.6 4.3-1.4 1-1 1.6-2.3 1.7-4.6-2.7.1-4 1-4.9 2z"/></svg></div>
-          <h3>Direct van de boer</h3>
-          <p>We betalen gemiddeld 2,4× de beursprijs en bezoeken onze boeren elk oogstseizoen.</p>
-        </article>
-        <article class="value reveal">
-          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.07-2.14-.22-4.05 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.15.43-2.29 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg></div>
-          <h3>Gebrand op dinsdag</h3>
-          <p>Nooit op voorraad. Je koffie is hooguit vier dagen oud als je de zak openknipt.</p>
-        </article>
-        <article class="value reveal">
-          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h18M7 6v14h10V6M10 10v6M14 10v6M9 6V3h6v3"/></svg></div>
-          <h3>Composteerbaar</h3>
-          <p>Onze zakken gaan gewoon bij het gft. Ventiel en sticker incluis.</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section class="coffees-bg" id="koffie">
-    <div class="wrap">
-      <div class="section-head reveal">
-        <div><p class="eyebrow">Deze week gebrand</p><h2>Kies je boon</h2></div>
-        <div class="filters" role="group" aria-label="Filter op smaak">
-          <button class="chip" aria-pressed="true" data-filter="alle">Alle</button>
-          <button class="chip" aria-pressed="false" data-filter="fruitig">Fruitig</button>
-          <button class="chip" aria-pressed="false" data-filter="chocolade">Chocolade</button>
-          <button class="chip" aria-pressed="false" data-filter="espresso">Espresso</button>
-        </div>
-      </div>
-      <div class="grid" id="grid"></div>
-    </div>
-  </section>
-
-  <section id="proces">
-    <div class="wrap">
-      <div class="section-head reveal">
-        <div><p class="eyebrow">Van kers tot kop</p><h2>Hoe een week bij ons eruitziet</h2></div>
-        <p>Geen geheimen. Wel een oude Giesen-brander uit 1987 die we Henk noemen.</p>
-      </div>
-      <div class="steps">
-        <div class="step reveal"><h3>Maandag · Cuppen</h3><p>We proeven elke nieuwe partij blind. Scoort hij onder de 85, dan gaat hij terug.</p></div>
-        <div class="step reveal"><h3>Dinsdag · Branden</h3><p>Batches van 12 kilo, profiel per boon. Henk draait van zes uur 's ochtends.</p></div>
-        <div class="step reveal"><h3>Woensdag · Rusten</h3><p>De bonen ontgassen een dag. Daarna wegen, vullen en met de hand dichtsealen.</p></div>
-        <div class="step reveal"><h3>Donderdag · Versturen</h3><p>PostNL haalt om vier uur op. Vrijdag ligt hij bij jou, met een briefje erbij.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <section id="abonnement" style="padding-top:0">
-    <div class="wrap">
-      <div class="sub reveal">
-        <div>
-          <p class="eyebrow">Abonnement</p>
-          <h2>Nooit meer een lege bus</h2>
-          <p>Elke levering een andere boon, gekozen door ons. Pauzeren of stoppen kan altijd, met één klik.</p>
-          <ul class="perks">
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Gratis verzending, altijd</li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>15% korting op elke zak</li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Eerste maand voor €9</li>
-          </ul>
-        </div>
-        <form class="signup" id="signup" novalidate>
-          <fieldset>
-            <legend>Hoe vaak wil je koffie?</legend>
-            <div class="freq">
-              <input type="radio" name="freq" id="f1" value="week"><label for="f1"><span><b>Elke week</b><br>250 g</span></label>
-              <input type="radio" name="freq" id="f2" value="2weken" checked><label for="f2"><span><b>2 weken</b><br>500 g</span></label>
-              <input type="radio" name="freq" id="f4" value="maand"><label for="f4"><span><b>Maand</b><br>1 kg</span></label>
-            </div>
-          </fieldset>
-          <div class="field">
-            <label for="naam">Naam</label>
-            <input id="naam" name="naam" autocomplete="name" aria-describedby="naam-err">
-            <span class="error" id="naam-err" aria-live="polite"></span>
-          </div>
-          <div class="field">
-            <label for="email">E-mailadres</label>
-            <input id="email" name="email" type="email" autocomplete="email" inputmode="email" aria-describedby="email-err">
-            <span class="error" id="email-err" aria-live="polite"></span>
-          </div>
-          <button class="btn btn-primary" type="submit" style="justify-content:center">Start voor €9</button>
-          <div class="success" role="status">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m8 12 3 3 5-6"/></svg>
-            <h3>Top, <span id="who"></span>!</h3>
-            <p>Je eerste zak gaat dinsdag in de brander. Check je mail voor de bevestiging.</p>
-          </div>
-        </form>
-      </div>
-    </div>
-  </section>
-
-  <section id="bezoek" style="padding-top:0">
-    <div class="wrap visit">
-      <div class="map reveal" role="img" aria-label="Kaartje van de omgeving rond de branderij aan het Noorderhaven in Groningen">
-        <svg viewBox="0 0 600 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-          <rect width="600" height="400" fill="#F3EAE1"/>
-          <path d="M-20 250C120 230 200 280 330 255S520 210 640 240" stroke="#BFD7E0" stroke-width="38" fill="none"/>
-          <g stroke="#fff" stroke-width="14" fill="none" stroke-linecap="round"><path d="M60 0v400M0 120h600M420 0l-60 400M0 340h600M220 0v400"/></g>
-          <g fill="#E8D5C4"><rect x="80" y="20" width="120" height="80" rx="8"/><rect x="240" y="20" width="160" height="80" rx="8"/><rect x="80" y="140" width="120" height="70" rx="8"/><rect x="440" y="20" width="150" height="80" rx="8"/><rect x="240" y="140" width="110" height="70" rx="8"/><rect x="440" y="140" width="150" height="60" rx="8"/></g>
-          <g transform="translate(300 150)"><circle r="34" fill="#7C2D12" opacity=".15"/><path d="M0 18s-20-20-20-34a20 20 0 0 1 40 0c0 14-20 34-20 34z" transform="translate(0 -14)" fill="#7C2D12"/><circle cy="-30" r="7" fill="#E9C46A"/></g>
-        </svg>
-      </div>
-      <div class="reveal">
-        <p class="eyebrow">Bezoek de branderij</p>
-        <h2 style="font-size:clamp(32px,4vw,46px);margin-top:8px">Kom proeven op zaterdag</h2>
-        <address>Noorderhaven 42, 9712 VM Groningen</address>
-        <div class="hours" id="hours">
-          <div data-day="2"><span>Dinsdag – vrijdag</span><span>08:00 – 16:00</span></div>
-          <div data-day="6"><span>Zaterdag · gratis cupping om 11:00</span><span>09:00 – 17:00</span></div>
-          <div data-day="0"><span>Zondag & maandag</span><span>Gesloten</span></div>
-        </div>
+      <div class="hours" id="hours">
+        <div data-day="2"><span>Dinsdag tot en met vrijdag</span><span>08:00 tot 16:00</span></div>
+        <div data-day="6"><span>Zaterdag</span><span>09:00 tot 17:00</span></div>
+        <div data-day="0"><span>Zondag en maandag</span><span>Gesloten</span></div>
       </div>
     </div>
   </section>
@@ -416,101 +347,139 @@
 
 <footer>
   <div class="wrap">
-    <a class="logo" href="#top">
-      <svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="19" fill="#E9C46A"/><path d="M20 8c-6 4-6 20 0 24 6-4 6-20 0-24Z" fill="#7C2D12"/></svg>
-      Noorderlicht
-    </a>
-    <p>© <span id="year"></span> Noorderlicht Koffiebranderij · Een fictief bedrijf, gebouwd als demo.</p>
+    <span>© <span id="year"></span> Noorderlicht Koffiebranderij</span>
+    <span>Een fictief bedrijf, gemaakt als demo.</span>
   </div>
 </footer>
 
-<div class="toast" id="toast" role="status" aria-live="polite"><span id="toast-text">Toegevoegd</span><span class="cart-count" id="cart-count">0</span></div>
+<div class="toast" id="toast" role="status" aria-live="polite"><span id="toast-text">In je mand</span><b id="cart-count">0</b></div>
 
 <script>
-  const coffees = [
-    { name: "Guji Hambela", origin: "Ethiopië · natural · 2.200 m", notes: ["bosbes", "jasmijn", "melkchocolade"], roast: 30, price: "14,50", tags: ["fruitig"], color: "#6B3FA0", tag: "Favoriet" },
-    { name: "Huila Esperanza", origin: "Colombia · washed · 1.750 m", notes: ["rode appel", "karamel", "cacao"], roast: 50, price: "12,90", tags: ["chocolade"], color: "#B5462E" },
-    { name: "Nyeri Gatomboya", origin: "Kenia · washed · 1.900 m", notes: ["zwarte bes", "grapefruit", "rietsuiker"], roast: 35, price: "16,50", tags: ["fruitig"], color: "#2E6B5A", tag: "Beperkt" },
-    { name: "Henk's Huismelange", origin: "Brazilië & Guatemala", notes: ["hazelnoot", "pure chocolade", "toffee"], roast: 75, price: "11,50", tags: ["chocolade", "espresso"], color: "#3B160A" },
-    { name: "Nyamasheke", origin: "Rwanda · washed · 1.800 m", notes: ["perzik", "hibiscus", "honing"], roast: 40, price: "14,90", tags: ["fruitig"], color: "#C47A1F" },
-    { name: "Nachtbrander", origin: "Brazilië · pulped natural", notes: ["dadel", "cacao nibs", "melasse"], roast: 90, price: "12,50", tags: ["espresso", "chocolade"], color: "#1C0A06" },
-  ];
-  const plus = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>';
-  const check = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>';
-  const bag = c => `<svg viewBox="0 0 120 150" aria-hidden="true"><path d="M18 20h84l8 120H10z" fill="${c}"/><path d="M18 20h84v14H18z" fill="rgba(0,0,0,.25)"/><rect x="34" y="62" width="52" height="46" rx="6" fill="#FBEFE4"/><path d="M60 70c-5 3-5 27 0 30 5-3 5-27 0-30z" fill="${c}"/><circle cx="60" cy="48" r="5" fill="rgba(255,255,255,.35)"/></svg>`;
-  const grid = document.getElementById("grid");
-  grid.innerHTML = coffees.map((c, i) => `
-    <article class="card reveal" data-tags="${c.tags.join(" ")}">
-      <div class="bag" style="background:linear-gradient(160deg, ${c.color}22, ${c.color}55)">${c.tag ? `<span class="tag">${c.tag}</span>` : ""}${bag(c.color)}</div>
-      <div class="card-body">
-        <h3>${c.name}</h3>
-        <p class="origin">${c.origin}</p>
-        <ul class="notes" aria-label="Smaaknoten">${c.notes.map(n => `<li>${n}</li>`).join("")}</ul>
-        <div class="roast"><span>Licht</span><span class="roast-bar" role="img" aria-label="Branding ${c.roast} procent donker"><i style="width:${c.roast}%"></i></span><span>Donker</span></div>
-        <div class="card-foot">
-          <p class="price">€${c.price} <small>/ 250 g</small></p>
-          <button class="add" data-i="${i}" aria-label="${c.name} toevoegen aan winkelmand">${plus}</button>
-        </div>
-      </div>
-    </article>`).join("");
+  /* Roast curve */
+  const narrow = matchMedia("(max-width: 640px)").matches;
+  const W = narrow ? 600 : 1200, H = narrow ? 440 : 380;
+  const X0 = 60, X1 = W - 40, Y0 = H - 50, Y1 = 30, TMAX = 12, TLO = 80, THI = 220, END = 11 + 40 / 60;
+  const x = t => X0 + t / TMAX * (X1 - X0);
+  const y = T => Y0 - (T - TLO) / (THI - TLO) * (Y0 - Y1);
+  const temp = t => t < 1.5
+    ? 90 + 110 * (1 - t / 1.5) ** 2
+    : 90 + 115 * (1 - Math.exp(-(t - 1.5) / 6)) / (1 - Math.exp(-(END - 1.5) / 6));
+  const timeAt = T => { let t = 1.5; while (temp(t) < T) t += .005; return t; };
+  const fmt = t => `${Math.floor(t)}:${String(Math.round(t % 1 * 60)).padStart(2, "0")}`;
+  const NS = "http://www.w3.org/2000/svg";
+  const el = (tag, attrs, text) => { const n = document.createElementNS(NS, tag); for (const k in attrs) n.setAttribute(k, attrs[k]); if (text) n.textContent = text; return n; };
 
-  // Filters
+  const chart = document.getElementById("chart");
+  chart.setAttribute("viewBox", `0 0 ${W} ${H}`);
+  const grad = document.getElementById("roast"); grad.setAttribute("x2", X1);
+  const grid = document.getElementById("grid"), axis = document.getElementById("axis");
+  for (let T = 100; T <= 220; T += 40) {
+    grid.append(el("line", { x1: X0, x2: X1, y1: y(T), y2: y(T) }));
+    axis.append(el("text", { x: X0 - 10, y: y(T) + 5, "text-anchor": "end" }, T + "°"));
+  }
+  for (let m = 0; m <= 12; m += narrow ? 4 : 2) axis.append(el("text", { x: x(m), y: Y0 + 30, "text-anchor": "middle" }, m + " min"));
+
+  const pts = [];
+  for (let t = 0; t <= END + 1e-9; t += 0.02) pts.push([x(t), y(temp(t))]);
+  const line = document.getElementById("line");
+  line.setAttribute("d", "M" + pts.map(p => p.map(v => v.toFixed(1)).join(" ")).join("L"));
+
+  const marks = [
+    { t: 1.5, label: "Omslagpunt", drop: 60, anchor: "start" },
+    { t: timeAt(150), label: "Geel", drop: -60, anchor: "middle" },
+    { t: timeAt(196), label: "Eerste kraak", drop: 70, anchor: "end" },
+    { t: END, label: "Uit de trommel", drop: 140, anchor: "end" },
+  ].map(m => {
+    const g = el("g", { class: "mark" }), px = x(m.t), py = y(temp(m.t)), dir = Math.sign(m.drop);
+    const lx = m.anchor === "start" ? px - 4 : m.anchor === "end" ? px + 4 : px;
+    g.append(el("line", { x1: px, x2: px, y1: py + 14 * dir, y2: py + m.drop }));
+    g.append(el("text", { x: lx, y: py + m.drop + (dir > 0 ? 22 : -8), "text-anchor": m.anchor }, `${m.label}, ${fmt(m.t)}`));
+    document.getElementById("marks").append(g);
+    return { ...m, g };
+  });
+
+  const dot = document.getElementById("dot"), tempOut = document.getElementById("temp"), clock = document.getElementById("clock");
+  const len = line.getTotalLength();
+  const show = p => {
+    const t = p * END, at = line.getPointAtLength(p * len);
+    line.style.strokeDasharray = len; line.style.strokeDashoffset = len * (1 - p);
+    dot.setAttribute("cx", at.x); dot.setAttribute("cy", at.y); dot.setAttribute("opacity", 1);
+    tempOut.textContent = Math.round(temp(t)); clock.textContent = fmt(t);
+    marks.forEach(m => m.g.classList.toggle("on", t >= m.t - 1e-6));
+  };
+  if (matchMedia("(prefers-reduced-motion: reduce)").matches) show(1);
+  else {
+    const DUR = 3600; let start;
+    const ease = p => 1 - (1 - p) ** 2;
+    const step = now => { start ??= now; const p = Math.min((now - start) / DUR, 1); show(ease(p)); if (p < 1) requestAnimationFrame(step); };
+    show(0); setTimeout(() => requestAnimationFrame(step), 350);
+  }
+
+  /* Coffee list */
+  const coffees = [
+    { name: "Guji Hambela", origin: "Ethiopië, natural, 2.200 m", notes: "bosbes, jasmijn, melkchocolade", roast: 30, price: "14,50", tags: ["fruitig"], tag: "Batch 214" },
+    { name: "Huila Esperanza", origin: "Colombia, washed, 1.750 m", notes: "rode appel, karamel, cacao", roast: 50, price: "12,90", tags: ["chocolade"] },
+    { name: "Nyeri Gatomboya", origin: "Kenia, washed, 1.900 m", notes: "zwarte bes, grapefruit, rietsuiker", roast: 35, price: "16,50", tags: ["fruitig"], tag: "Nog 40 zakken" },
+    { name: "Henk's huismelange", origin: "Brazilië en Guatemala", notes: "hazelnoot, pure chocolade, toffee", roast: 75, price: "11,50", tags: ["chocolade", "espresso"] },
+    { name: "Nyamasheke", origin: "Rwanda, washed, 1.800 m", notes: "perzik, hibiscus, honing", roast: 40, price: "14,90", tags: ["fruitig"] },
+    { name: "Nachtbrander", origin: "Brazilië, pulped natural", notes: "dadel, cacaonibs, melasse", roast: 90, price: "12,50", tags: ["espresso", "chocolade"] },
+  ];
+  const ramp = [[0, [200, 162, 74]], [.5, [184, 116, 42]], [.75, [107, 58, 30]], [1, [43, 29, 20]]];
+  const roastColor = r => {
+    const p = r / 100; let i = 0; while (p > ramp[i + 1][0]) i++;
+    const [a, ca] = ramp[i], [b, cb] = ramp[i + 1], k = (p - a) / (b - a);
+    return `rgb(${ca.map((c, j) => Math.round(c + (cb[j] - c) * k)).join(",")})`;
+  };
+  const roastName = r => r < 40 ? "Licht" : r < 60 ? "Medium" : r < 85 ? "Donker" : "Heel donker";
+  const beans = document.getElementById("beans");
+  beans.innerHTML = coffees.map((c, i) => `
+    <li class="bean" data-tags="${c.tags.join(" ")}">
+      <svg class="bean-dot" viewBox="0 0 44 56" aria-hidden="true"><ellipse cx="22" cy="28" rx="18" ry="25" fill="${roastColor(c.roast)}"/><path d="M22 5c-7 10 7 36 0 46" stroke="rgba(0,0,0,.35)" stroke-width="3" fill="none" stroke-linecap="round"/></svg>
+      <div><h3>${c.name}${c.tag ? `<span class="tag">${c.tag}</span>` : ""}</h3><p class="origin">${c.origin}</p></div>
+      <p class="notes">${c.notes}</p>
+      <p class="roastlvl"><b>${roastName(c.roast)}</b>gebrand</p>
+      <div class="buy"><p class="price">€${c.price} <small>250 g</small></p><button class="add" data-i="${i}" aria-label="${c.name} in je mand">In mand</button></div>
+    </li>`).join("");
+
   document.querySelectorAll(".chip").forEach(chip => chip.addEventListener("click", () => {
     document.querySelectorAll(".chip").forEach(c => c.setAttribute("aria-pressed", c === chip));
     const f = chip.dataset.filter;
-    grid.querySelectorAll(".card").forEach(card => { card.hidden = f !== "alle" && !card.dataset.tags.includes(f); });
+    beans.querySelectorAll(".bean").forEach(b => { b.hidden = f !== "alle" && !b.dataset.tags.split(" ").includes(f); });
   }));
 
-  // Cart
   let count = 0, toastTimer;
   const toast = document.getElementById("toast");
-  grid.addEventListener("click", e => {
+  beans.addEventListener("click", e => {
     const btn = e.target.closest(".add"); if (!btn) return;
     count++;
     document.getElementById("cart-count").textContent = count;
-    document.getElementById("toast-text").textContent = `${coffees[btn.dataset.i].name} toegevoegd`;
+    document.getElementById("toast-text").textContent = `${coffees[btn.dataset.i].name} ligt in je mand`;
     toast.classList.add("show");
-    btn.classList.add("done"); btn.innerHTML = check;
-    setTimeout(() => { btn.classList.remove("done"); btn.innerHTML = plus; }, 1400);
-    clearTimeout(toastTimer); toastTimer = setTimeout(() => toast.classList.remove("show"), 2600);
+    btn.classList.add("done"); btn.textContent = "In je mand";
+    setTimeout(() => { btn.classList.remove("done"); btn.textContent = "In mand"; }, 1600);
+    clearTimeout(toastTimer); toastTimer = setTimeout(() => toast.classList.remove("show"), 2800);
   });
 
-  // Form validation
+  /* Subscription form */
   const form = document.getElementById("signup");
   form.addEventListener("submit", e => {
     e.preventDefault();
-    const naam = form.naam, email = form.email;
     const setErr = (input, msg) => { input.setAttribute("aria-invalid", !!msg); document.getElementById(input.id + "-err").textContent = msg; };
-    setErr(naam, naam.value.trim() ? "" : "Vul je naam in, dan weten we op wie we proosten.");
-    setErr(email, /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value) ? "" : "Dit e-mailadres klopt niet helemaal, bijvoorbeeld: naam@voorbeeld.nl");
+    setErr(form.naam, form.naam.value.trim() ? "" : "Vul je naam in.");
+    setErr(form.email, /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email.value) ? "" : "Vul een e-mailadres in zoals naam@voorbeeld.nl.");
     const bad = form.querySelector('[aria-invalid="true"]');
     if (bad) { bad.focus(); return; }
-    document.getElementById("who").textContent = naam.value.trim().split(" ")[0];
+    document.getElementById("who").textContent = form.naam.value.trim().split(" ")[0];
     form.classList.add("sent");
   });
 
-  // Highlight today's opening hours
+  /* Today's hours */
   const d = new Date().getDay();
-  const row = d === 0 || d === 1 ? 0 : d === 6 ? 6 : 2;
-  document.querySelector(`#hours [data-day="${row}"]`).classList.add("today");
-
-  // Nav
-  const nav = document.getElementById("nav"), menuBtn = document.getElementById("menu-btn");
-  menuBtn.addEventListener("click", () => {
-    const open = nav.classList.toggle("open");
-    menuBtn.setAttribute("aria-expanded", open);
-    menuBtn.setAttribute("aria-label", open ? "Menu sluiten" : "Menu openen");
-  });
-  document.querySelectorAll(".nav-links a").forEach(a => a.addEventListener("click", () => { nav.classList.remove("open"); menuBtn.setAttribute("aria-expanded", false); }));
-  addEventListener("scroll", () => nav.classList.toggle("scrolled", scrollY > 8), { passive: true });
-
-  // Reveal on scroll
-  const io = new IntersectionObserver(entries => entries.forEach(en => {
-    if (en.isIntersecting) { en.target.classList.add("in"); io.unobserve(en.target); }
-  }), { threshold: .12 });
-  document.querySelectorAll(".reveal").forEach((el, i) => { el.style.transitionDelay = `${(i % 4) * 70}ms`; io.observe(el); });
-
+  document.querySelector(`#hours [data-day="${d === 0 || d === 1 ? 0 : d === 6 ? 6 : 2}"]`).classList.add("today");
   document.getElementById("year").textContent = new Date().getFullYear();
+
+  const nav = document.getElementById("nav");
+  addEventListener("scroll", () => nav.classList.toggle("scrolled", scrollY > 8), { passive: true });
 </script>
 </body>
 </html>
