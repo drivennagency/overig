@@ -3,26 +3,21 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Noorderlicht Koffiebranderij Groningen</title>
-<meta name="description" content="Kleine koffiebranderij aan het Noorderhaven in Groningen. Elke dinsdag vers gebrand, vrijdag bij jou op de mat. Losse zakken of een abonnement.">
+<title>Omkleur Carwrapping Groningen</title>
+<meta name="description" content="Carwrapping in Groningen. Kies je folie, zie hem direct op de auto en volg de wrap stap voor stap op je telefoon.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&display=swap" rel="stylesheet">
 <style>
   :root {
-    --raw: #E4E7D6;
-    --chaff: #D3D8C0;
-    --line: #BCC2A6;
-    --ink: #2B1D14;
-    --ink-soft: #57493D;
-    --cinnamon: #B8742A;
-    --canal: #234B55;
-    --canal-deep: #183840;
-    --paper: #F1F3E8;
-
-    --display: "Big Shoulders Display", "Arial Narrow", sans-serif;
-    --body: "Source Serif 4", Georgia, serif;
-
+    --floor: #D9DCDD;
+    --panel: #E9EBEC;
+    --line: #B8BEC2;
+    --ink: #1E252B;
+    --ink-soft: #545E66;
+    --plate: #F2C200;
+    --eu: #1F3F94;
+    --foil: #1F4A36;
     --gutter: 16px;
     --ease: cubic-bezier(.2, .8, .2, 1);
   }
@@ -30,456 +25,499 @@
 
   *, *::before, *::after { box-sizing: border-box; }
   html { scroll-behavior: smooth; }
-  body {
-    margin: 0; background: var(--raw); color: var(--ink);
-    font: 400 18px/1.65 var(--body);
-    -webkit-font-smoothing: antialiased;
-  }
-  h1, h2, h3 { font-family: var(--display); font-weight: 800; line-height: .9; margin: 0; letter-spacing: .005em; }
+  body { margin: 0; background: var(--floor); color: var(--ink); font: 400 17px/1.6 "Archivo", system-ui, sans-serif; font-variation-settings: "wdth" 100; -webkit-font-smoothing: antialiased; }
+  h1, h2, h3 { margin: 0; font-weight: 800; line-height: .95; font-variation-settings: "wdth" 125; letter-spacing: -.01em; }
   p { margin: 0; text-wrap: pretty; }
   a { color: inherit; }
-  svg { display: block; }
-  .wrap { width: min(1240px, 100% - 2 * var(--gutter)); margin-inline: auto; }
-  :focus-visible { outline: 3px solid var(--cinnamon); outline-offset: 3px; }
-  .skip { position: absolute; left: -9999px; }
-  .skip:focus { left: 16px; top: 16px; z-index: 50; background: var(--paper); padding: 8px 14px; }
+  .wrap { width: min(1280px, 100% - 2 * var(--gutter)); margin-inline: auto; }
+  :focus-visible { outline: 3px solid var(--ink); outline-offset: 3px; }
+  .skip, .sr { position: absolute; left: -9999px; }
+  .skip:focus { left: 16px; top: 16px; z-index: 50; background: #fff; padding: 8px 14px; }
 
-  .btn {
-    display: inline-flex; align-items: center; justify-content: center; min-height: 50px; padding: 0 26px;
-    font: 600 21px/1 var(--display); letter-spacing: .02em; text-decoration: none; cursor: pointer;
-    border: 2px solid var(--canal); border-radius: 4px; background: var(--canal); color: #fff;
-    transition: background-color .15s, color .15s;
-  }
-  .btn:hover { background: var(--canal-deep); border-color: var(--canal-deep); }
-  .btn.quiet { background: transparent; color: var(--canal); }
-  .btn.quiet:hover { background: var(--canal); color: #fff; }
+  .btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 50px; padding: 0 24px; border: 2px solid var(--ink); border-radius: 25px; background: var(--ink); color: #fff; font: 600 16px "Archivo", sans-serif; text-decoration: none; cursor: pointer; }
+  .btn:hover { background: #33404A; border-color: #33404A; }
+  .btn.ghost { background: transparent; color: var(--ink); }
+  .btn.ghost:hover, .btn.ghost[aria-pressed="true"] { background: var(--ink); color: #fff; }
 
   /* Nav */
-  .nav { position: sticky; top: 0; z-index: 20; background: var(--raw); border-bottom: 1px solid transparent; transition: border-color .2s; }
-  .nav.scrolled { border-bottom-color: var(--line); }
-  .nav .wrap { display: flex; align-items: center; gap: 32px; min-height: 68px; }
-  .wordmark { font: 800 28px/1 var(--display); text-decoration: none; letter-spacing: .01em; }
+  .nav .wrap { display: flex; align-items: center; gap: 32px; min-height: 72px; }
+  .logo { font-weight: 800; font-size: 22px; font-variation-settings: "wdth" 125; text-decoration: none; display: flex; align-items: center; gap: 10px; }
+  .logo i { width: 22px; height: 22px; border-radius: 50%; background: var(--foil); transition: background-color .6s; box-shadow: inset 0 0 0 2px rgba(255,255,255,.35); }
   .nav ul { display: flex; gap: 28px; list-style: none; margin: 0 0 0 auto; padding: 0; }
-  .nav ul a { text-decoration: none; font-size: 17px; }
+  .nav ul a { text-decoration: none; }
   .nav ul a:hover { text-decoration: underline; text-underline-offset: 4px; }
-  .nav .btn { min-height: 42px; font-size: 18px; padding: 0 18px; }
-  @media (max-width: 760px) { .nav ul { display: none; } .nav .btn { margin-left: auto; } }
+  .nav .btn { min-height: 42px; padding: 0 18px; }
+  @media (max-width: 820px) { .nav ul { display: none; } .nav .btn { margin-left: auto; } }
 
   /* Hero */
-  .hero { padding: 48px 0 0; }
-  .hero h1 { font-size: clamp(60px, 9.4vw, 152px); }
+  .hero h1 { font-size: clamp(44px, 8.4vw, 132px); margin-top: 24px; }
   .hero h1 span { display: block; }
-  .hero-foot { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: 24px 48px; margin-top: 32px; }
-  .hero-foot p { max-width: 46ch; color: var(--ink-soft); font-size: 19px; }
-  .hero-foot .actions { display: flex; flex-wrap: wrap; gap: 12px; }
+  .stage { position: relative; margin-top: 8px; height: clamp(340px, 60vh, 620px); }
+  .stage canvas { display: block; width: 100%; height: 100%; cursor: grab; touch-action: pan-y; }
+  .stage canvas:active { cursor: grabbing; }
+  .stage-msg { position: absolute; inset: 0; display: grid; place-items: center; color: var(--ink-soft); text-align: center; padding: 24px; pointer-events: none; }
+  .stage-msg[hidden] { display: none; }
+  .hint { position: absolute; right: 0; top: 8px; font-size: 14px; color: var(--ink-soft); }
+  .config { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 24px 40px; align-items: end; padding: 24px 0 0; border-top: 6px solid var(--foil); transition: border-color .6s; }
+  .config legend { font-weight: 600; margin-bottom: 12px; padding: 0; }
+  .config fieldset { border: 0; margin: 0; padding: 0; min-width: 0; }
+  .swatches { display: flex; flex-wrap: wrap; gap: 10px; }
+  .swatches input, .finish input { position: absolute; opacity: 0; pointer-events: none; }
+  .swatches label { display: flex; align-items: center; gap: 10px; padding: 6px 16px 6px 6px; border: 1.5px solid var(--line); border-radius: 26px; cursor: pointer; background: var(--panel); font-size: 15px; }
+  .swatches label i { width: 34px; height: 34px; border-radius: 50%; flex: none; box-shadow: inset 0 -6px 10px rgba(0,0,0,.25), inset 0 4px 8px rgba(255,255,255,.25); }
+  .swatches input:checked + label { border-color: var(--ink); background: #fff; }
+  .swatches input:focus-visible + label, .finish input:focus-visible + label { outline: 3px solid var(--ink); outline-offset: 2px; }
+  .finish { display: inline-flex; border: 1.5px solid var(--ink); border-radius: 22px; overflow: hidden; margin-top: 16px; }
+  .finish label { padding: 9px 18px; cursor: pointer; font-size: 15px; }
+  .finish input:checked + label { background: var(--ink); color: #fff; }
+  .quote { text-align: right; }
+  .quote .name { font-size: 15px; color: var(--ink-soft); }
+  .quote .price { font-size: clamp(32px, 4vw, 48px); font-weight: 800; font-variation-settings: "wdth" 125; line-height: 1.1; }
+  .quote .price small { font-size: 15px; font-weight: 400; font-variation-settings: "wdth" 100; color: var(--ink-soft); }
+  .quote .actions { display: flex; gap: 10px; justify-content: flex-end; margin-top: 12px; flex-wrap: wrap; }
+  @media (max-width: 820px) {
+    .config { grid-template-columns: 1fr; }
+    .quote { text-align: left; }
+    .quote .actions { justify-content: flex-start; }
+    .hint { top: auto; bottom: 4px; }
+  }
 
-  .curve { margin: 56px 0 0; border-top: 2px solid var(--ink); padding-top: 14px; }
-  .curve-head { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px; font-size: 16px; color: var(--ink-soft); }
-  .curve-head strong { color: var(--ink); font-weight: 600; }
-  .readout { font: 800 clamp(40px, 6vw, 72px)/1 var(--display); color: var(--ink); font-variant-numeric: tabular-nums; }
-  .readout small { font-size: .45em; font-weight: 600; margin-left: 4px; color: var(--ink-soft); }
-  .curve-box { display: grid; grid-template-columns: auto 1fr; gap: 24px; align-items: end; }
-  .curve svg { width: 100%; height: auto; overflow: visible; }
-  .curve .grid line { stroke: var(--line); stroke-width: 1; }
-  .curve .axis text { font: 400 14px var(--body); fill: var(--ink-soft); }
-  .curve .mark line { stroke: var(--ink); stroke-width: 1; stroke-dasharray: 3 4; }
-  .curve .mark text { font: 600 17px var(--display); fill: var(--ink); letter-spacing: .02em; }
-  .curve .mark { opacity: 0; transition: opacity .4s; }
-  .curve .mark.on { opacity: 1; }
+  section { padding-top: 128px; }
+  .head { display: grid; grid-template-columns: 1fr 1fr; gap: 16px 48px; align-items: end; margin-bottom: 48px; }
+  .head h2 { font-size: clamp(36px, 5.2vw, 72px); }
+  .head p { color: var(--ink-soft); max-width: 46ch; }
+  @media (max-width: 820px) { .head { grid-template-columns: 1fr; } }
+
+  /* Phone */
+  .follow { display: grid; grid-template-columns: 1fr minmax(0, 1fr); gap: 48px; align-items: center; }
+  .follow h2 { font-size: clamp(36px, 4.4vw, 64px); }
+  .follow .copy p { color: var(--ink-soft); max-width: 44ch; margin-top: 20px; }
+  #volgen { overflow-x: clip; }
+  .phone-scene { display: grid; justify-items: center; }
+  .phone {
+    width: 300px; aspect-ratio: 300 / 620; border-radius: 52px; padding: 12px; position: relative;
+    background: linear-gradient(145deg, #5B636A, #23292E 40%, #3B434A);
+    box-shadow: 0 0 0 1.5px #737B82 inset, 0 50px 80px -30px rgba(30,37,43,.55), 0 20px 30px -20px rgba(30,37,43,.4);
+    will-change: transform;
+  }
+  .phone::before { content: ""; position: absolute; left: -3px; top: 150px; width: 3px; height: 60px; border-radius: 2px; background: #3B434A; }
+  .screen { width: 100%; height: 100%; border-radius: 41px; overflow: hidden; background: #F4F5F6; display: flex; flex-direction: column; position: relative; }
+  .island { position: absolute; top: 11px; left: 50%; translate: -50% 0; width: 96px; height: 28px; border-radius: 14px; background: #000; z-index: 2; }
+  .status { display: flex; justify-content: space-between; padding: 14px 26px 0; font-size: 14px; font-weight: 600; height: 44px; }
+  .app-head { padding: 12px 18px 10px; border-bottom: 1px solid #DDE0E2; display: flex; align-items: center; gap: 10px; }
+  .app-head i { width: 32px; height: 32px; border-radius: 50%; background: var(--foil); transition: background-color .6s; flex: none; }
+  .app-head b { display: block; font-size: 15px; line-height: 1.2; }
+  .app-head span { font-size: 12px; color: var(--ink-soft); }
+  .feed { flex: 1; padding: 14px 12px; display: flex; flex-direction: column; gap: 10px; justify-content: flex-end; overflow: hidden; }
+  .msg { background: #fff; border-radius: 16px 16px 16px 4px; padding: 10px 12px; font-size: 13.5px; line-height: 1.4; box-shadow: 0 1px 2px rgba(0,0,0,.06); max-width: 92%; transition: opacity .4s, transform .4s var(--ease); }
+  .msg time { display: block; font-size: 11px; color: var(--ink-soft); margin-bottom: 2px; }
+  .msg.pic { padding: 6px; }
+  .msg.pic .ph { height: 92px; border-radius: 11px; background: linear-gradient(160deg, var(--foil), color-mix(in srgb, var(--foil) 45%, #000)); position: relative; }
+  .msg.pic .ph::after { content: ""; position: absolute; left: 14%; right: 10%; bottom: 18px; height: 30px; border-radius: 40% 50% 8px 8px / 70% 80% 8px 8px; background: rgba(255,255,255,.22); }
+  .msg.pic p { padding: 6px 6px 2px; }
+  .msg.wait { opacity: 0; transform: translateY(12px); }
+  .feed .me { align-self: flex-end; background: var(--ink); color: #fff; border-radius: 16px 16px 4px 16px; }
+  @media (max-width: 820px) { .follow { grid-template-columns: 1fr; } .phone { width: 270px; } }
+
+  /* Steps */
+  .steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); border-top: 2px solid var(--ink); counter-reset: s; }
+  .steps li { padding: 20px 24px 0 0; counter-increment: s; }
+  .steps li + li { padding-left: 24px; border-left: 1px solid var(--line); }
+  .steps li::before { content: "Stap " counter(s); display: block; font-size: 14px; color: var(--ink-soft); margin-bottom: 8px; }
+  .steps h3 { font-size: 26px; margin-bottom: 10px; }
+  .steps p { color: var(--ink-soft); font-size: 16px; }
+  @media (max-width: 900px) { .steps { grid-template-columns: 1fr 1fr; row-gap: 32px; } .steps li:nth-child(3) { padding-left: 0; border-left: 0; } }
+  @media (max-width: 560px) { .steps { grid-template-columns: 1fr; } .steps li, .steps li + li { padding: 20px 0 0; border-left: 0; } }
+
+  /* Prices */
+  .prices { width: 100%; border-collapse: collapse; border-top: 2px solid var(--ink); }
+  .prices td { padding: 20px 0; border-bottom: 1px solid var(--line); vertical-align: top; }
+  .prices td:first-child { font-size: 22px; font-weight: 700; font-variation-settings: "wdth" 115; width: 34%; padding-right: 24px; }
+  .prices td:nth-child(2) { color: var(--ink-soft); padding-right: 24px; }
+  .prices td:last-child { text-align: right; font-weight: 700; white-space: nowrap; font-size: 20px; }
   @media (max-width: 640px) {
-    .curve-box { grid-template-columns: 1fr; }
-    .curve .axis text { font-size: 22px; }
-    .curve .mark text { font-size: 26px; }
+    .prices tr { display: grid; grid-template-columns: 1fr auto; border-bottom: 1px solid var(--line); padding: 16px 0; }
+    .prices td { border: 0; padding: 0; width: auto !important; }
+    .prices td:nth-child(2) { grid-column: 1 / -1; grid-row: 2; margin-top: 6px; }
   }
 
-  section { padding: 112px 0 0; }
-  .head { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 16px 48px; align-items: end; margin-bottom: 40px; }
-  .head h2 { font-size: clamp(48px, 7vw, 96px); }
-  .head p { color: var(--ink-soft); max-width: 48ch; }
-  @media (max-width: 760px) { .head { grid-template-columns: 1fr; } }
-
-  /* Coffee list */
-  .filters { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 8px; }
-  .chip {
-    min-height: 44px; padding: 0 18px; border: 1.5px solid var(--ink); border-radius: 22px; background: transparent;
-    font: 400 17px var(--body); color: var(--ink); cursor: pointer;
-  }
-  .chip[aria-pressed="true"] { background: var(--ink); color: var(--raw); }
-  .beans { list-style: none; margin: 0; padding: 0; border-top: 2px solid var(--ink); }
-  .bean {
-    display: grid; grid-template-columns: 56px minmax(0, 1.3fr) minmax(0, 1.2fr) 150px auto; gap: 8px 28px; align-items: center;
-    padding: 22px 0; border-bottom: 1px solid var(--line);
-  }
-  .bean[hidden] { display: none; }
-  .bean h3 { font-size: 34px; font-weight: 800; }
-  .bean .origin { font-size: 16px; color: var(--ink-soft); margin-top: 4px; }
-  .bean .notes { font-style: italic; }
-  .bean .roastlvl { font-size: 15px; color: var(--ink-soft); }
-  .bean .roastlvl b { display: block; font: 600 20px var(--display); color: var(--ink); }
-  .bean .buy { display: flex; align-items: center; gap: 16px; justify-self: end; }
-  .bean .price { font: 600 26px var(--display); white-space: nowrap; }
-  .bean .price small { font: 400 14px var(--body); color: var(--ink-soft); }
-  .add { min-height: 44px; padding: 0 16px; border: 1.5px solid var(--canal); border-radius: 4px; background: transparent; color: var(--canal); font: 600 18px var(--display); cursor: pointer; min-width: 112px; }
-  .add:hover { background: var(--canal); color: #fff; }
-  .add.done { background: var(--canal); color: #fff; }
-  .bean-dot { width: 44px; height: 56px; }
-  .tag { display: inline-block; margin-left: 10px; vertical-align: 6px; font: 400 14px var(--body); padding: 1px 9px; border: 1px solid var(--cinnamon); color: #7A4A14; border-radius: 12px; }
-  @media (max-width: 900px) {
-    .bean { grid-template-columns: 44px 1fr; }
-    .bean .notes, .bean .roastlvl, .bean .buy { grid-column: 2; }
-    .bean .buy { justify-self: start; }
-  }
-
-  /* Week */
-  .week { display: grid; grid-template-columns: repeat(5, 1fr); border-top: 2px solid var(--ink); }
-  .day { padding: 20px 24px 8px 0; }
-  .day + .day { padding-left: 24px; border-left: 1px solid var(--line); }
-  .day h3 { font-size: 36px; }
-  .day .what { font: 600 20px var(--display); color: var(--cinnamon); margin: 6px 0 12px; letter-spacing: .02em; }
-  .day p { font-size: 16px; color: var(--ink-soft); }
-  .day.you { background: var(--chaff); padding-right: 16px; }
-  .day.you .what { color: var(--canal); }
-  @media (max-width: 900px) {
-    .week { grid-template-columns: 1fr; }
-    .day, .day + .day { padding: 20px 0; border-left: 0; border-bottom: 1px solid var(--line); }
-    .day.you { padding-inline: 16px; }
-  }
-
-  /* Subscription */
-  .sub { background: var(--ink); color: var(--raw); padding: 112px 0; margin-top: 112px; }
-  .sub .wrap { display: grid; grid-template-columns: 1fr minmax(0, 480px); gap: 56px; align-items: start; }
-  .sub h2 { font-size: clamp(56px, 8vw, 112px); }
-  .sub .intro p { margin-top: 24px; max-width: 42ch; color: #CFC7BC; }
-  .sub ul { margin: 28px 0 0; padding: 0; list-style: none; }
-  .sub li { padding: 12px 0; border-top: 1px solid #4A3B30; }
-  .sub li:last-child { border-bottom: 1px solid #4A3B30; }
-  form { display: grid; gap: 20px; }
-  fieldset { border: 0; margin: 0; padding: 0; }
-  legend, label { font-weight: 600; font-size: 16px; }
-  .freq { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 8px; }
-  .freq input { position: absolute; opacity: 0; pointer-events: none; }
-  .freq label { display: block; padding: 12px 10px; border: 1.5px solid #6A5A4C; border-radius: 4px; cursor: pointer; font-weight: 400; line-height: 1.3; }
-  .freq label b { display: block; font: 600 22px var(--display); }
-  .freq input:checked + label { border-color: var(--raw); background: var(--raw); color: var(--ink); }
-  .freq input:focus-visible + label { outline: 3px solid var(--cinnamon); outline-offset: 2px; }
-  .field { display: grid; gap: 6px; }
-  .field input { min-height: 50px; padding: 0 14px; border: 1.5px solid #6A5A4C; border-radius: 4px; background: #3A2A1F; color: var(--raw); font: 18px var(--body); }
-  .field input:focus-visible { border-color: var(--raw); }
-  .field input[aria-invalid="true"] { border-color: #E9A36A; }
-  .error { color: #F0B585; font-size: 15px; min-height: 1.2em; }
-  .sub .btn { background: var(--raw); color: var(--ink); border-color: var(--raw); }
-  .sub .btn:hover { background: #fff; border-color: #fff; }
+  /* Booking */
+  .book { background: var(--ink); color: #fff; margin-top: 128px; padding: 112px 0; }
+  .book .wrap { display: grid; grid-template-columns: 1fr minmax(0, 520px); gap: 56px; }
+  .book h2 { font-size: clamp(40px, 6vw, 84px); }
+  .book .copy p { color: #B9C2C9; margin-top: 20px; max-width: 40ch; }
+  form#booking { display: grid; gap: 20px; }
+  label.lbl { font-weight: 600; display: block; margin-bottom: 8px; }
+  .plate { display: flex; height: 72px; border-radius: 8px; overflow: hidden; background: var(--plate); box-shadow: 0 0 0 3px #111 inset; max-width: 380px; }
+  .plate .eu { width: 46px; background: var(--eu); color: #fff; display: grid; align-content: end; justify-items: center; padding-bottom: 8px; font-weight: 700; font-size: 16px; border: 3px solid #111; border-right: 0; border-radius: 8px 0 0 8px; }
+  .plate .eu svg { width: 26px; height: 26px; margin-bottom: 4px; }
+  .plate input { flex: 1; min-width: 0; border: 0; background: transparent; font: 800 40px/1 "Archivo", sans-serif; font-variation-settings: "wdth" 80; letter-spacing: .06em; color: #111; text-transform: uppercase; padding: 0 16px; text-align: center; }
+  .plate input::placeholder { color: rgba(17,17,17,.35); }
+  .plate input:focus { outline: none; }
+  .plate:focus-within { outline: 3px solid #fff; outline-offset: 3px; }
+  .plate[data-invalid="true"] { box-shadow: 0 0 0 3px #FF9B8A inset; }
+  .book .field > input, .book select { width: 100%; min-height: 52px; padding: 0 14px; border-radius: 8px; border: 1.5px solid #56616A; background: #2A333A; color: #fff; font: 17px "Archivo", sans-serif; }
+  .book .field > input:focus-visible, .book select:focus-visible { outline: 3px solid #fff; outline-offset: 2px; }
+  .book .field > input[aria-invalid="true"] { border-color: #FF9B8A; }
+  .error { color: #FFB4A6; font-size: 15px; min-height: 1.2em; margin-top: 6px; }
+  .book .btn { background: #fff; color: var(--ink); border-color: #fff; }
+  .book .btn:hover { background: var(--panel); }
   .success { display: none; }
-  .success h3 { font-size: 48px; margin-bottom: 12px; }
+  .success h3 { font-size: 40px; margin-bottom: 12px; }
+  .success p { color: #B9C2C9; }
   form.sent > :not(.success) { display: none; }
   form.sent .success { display: block; }
-  @media (max-width: 900px) { .sub .wrap { grid-template-columns: 1fr; } }
+  @media (max-width: 900px) { .book .wrap { grid-template-columns: 1fr; } }
 
-  /* Visit */
-  .visit { padding: 112px 0; }
-  .visit .wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; }
-  .visit h2 { font-size: clamp(48px, 7vw, 96px); }
-  .visit address { font-style: normal; margin-top: 20px; font-size: 20px; }
-  .hours { border-top: 2px solid var(--ink); }
-  .hours div { display: flex; justify-content: space-between; gap: 16px; padding: 14px 0; border-bottom: 1px solid var(--line); }
-  .hours .today { font-weight: 600; }
-  .hours .today span:first-child::after { content: " (vandaag)"; font-weight: 400; color: var(--ink-soft); }
-  @media (max-width: 760px) { .visit .wrap { grid-template-columns: 1fr; } }
-
-  footer { border-top: 1px solid var(--line); padding: 28px 0 40px; font-size: 15px; color: var(--ink-soft); }
+  footer { padding: 32px 0 48px; color: var(--ink-soft); font-size: 14px; }
   footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; }
-
-  .toast {
-    position: fixed; left: 50%; bottom: 24px; transform: translate(-50%, 160%); visibility: hidden;
-    background: var(--ink); color: var(--raw); padding: 14px 22px; border-radius: 4px; font-size: 17px;
-    display: flex; gap: 14px; align-items: center;
-  }
-  .toast.show { transform: translate(-50%, 0); visibility: visible; transition: transform .3s var(--ease); }
-  .toast b { font-family: var(--display); font-size: 20px; }
 
   @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after { transition: none !important; scroll-behavior: auto !important; }
   }
 </style>
+<script type="importmap">
+  { "imports": {
+    "three": "https://cdn.jsdelivr.net/npm/three@0.179.1/build/three.module.js",
+    "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.179.1/examples/jsm/"
+  } }
+</script>
 </head>
 <body>
 <a class="skip" href="#main">Naar de inhoud</a>
 
-<header class="nav" id="nav">
+<header class="nav">
   <div class="wrap">
-    <a class="wordmark" href="#top">Noorderlicht</a>
+    <a class="logo" href="#top"><i aria-hidden="true"></i>Omkleur</a>
     <ul>
-      <li><a href="#koffie">Koffie</a></li>
-      <li><a href="#week">Onze week</a></li>
-      <li><a href="#abonnement">Abonnement</a></li>
-      <li><a href="#bezoek">Bezoek</a></li>
+      <li><a href="#folie">Folie kiezen</a></li>
+      <li><a href="#volgen">Volgen</a></li>
+      <li><a href="#prijzen">Prijzen</a></li>
+      <li><a href="#afspraak">Afspraak</a></li>
     </ul>
-    <a class="btn" href="#abonnement">Probeer een maand</a>
+    <a class="btn" href="#afspraak">Plan een intake</a>
   </div>
 </header>
 
 <main id="main">
-  <section class="hero" id="top">
+  <section class="hero" id="top" style="padding-top:0">
     <div class="wrap">
-      <h1><span>Dinsdag branden we.</span> <span>Vrijdag drink jij.</span></h1>
-      <div class="hero-foot">
-        <p>Een kleine branderij aan het Noorderhaven in Groningen. We kopen direct bij boeren die we kennen, branden in kleine batches en sturen je koffie op als hij hooguit vier dagen oud is.</p>
-        <div class="actions">
-          <a class="btn" href="#koffie">Bekijk de koffie</a>
-          <a class="btn quiet" href="#abonnement">Neem een abonnement</a>
+      <h1><span>Andere kleur.</span> <span>Zelfde auto.</span></h1>
+
+      <div class="stage" id="folie">
+        <canvas id="car" aria-label="3D-weergave van een sportwagen in de gekozen folie. Sleep om de auto te draaien."></canvas>
+        <p class="stage-msg" id="stage-msg">De auto wordt geladen</p>
+        <span class="hint">Sleep om de auto te draaien</span>
+      </div>
+
+      <form class="config" id="config" onsubmit="return false">
+        <div>
+          <fieldset>
+            <legend>Kies je folie</legend>
+            <div class="swatches" id="swatches"></div>
+          </fieldset>
+          <fieldset>
+            <legend class="sr">Afwerking</legend>
+            <div class="finish">
+              <input type="radio" name="finish" id="fin-mat" value="mat"><label for="fin-mat">Mat</label>
+              <input type="radio" name="finish" id="fin-satijn" value="satijn"><label for="fin-satijn">Satijn</label>
+              <input type="radio" name="finish" id="fin-glans" value="glans" checked><label for="fin-glans">Glans</label>
+            </div>
+          </fieldset>
         </div>
-      </div>
-
-      <figure class="curve" aria-labelledby="curve-cap">
-        <div class="curve-head">
-          <span id="curve-cap"><strong>Batch 214, Guji Hambela.</strong> Deze week gebrand door Henk, onze Giesen uit 1987.</span>
-          <span>Temperatuur van de bonen in de trommel</span>
-        </div>
-        <div class="curve-box">
-          <p class="readout" aria-hidden="true"><span id="temp">200</span><small>°C</small><br><small id="clock" style="margin:0">0:00</small></p>
-          <svg id="chart" viewBox="0 0 1200 380" role="img" aria-label="Brandcurve: de bonen gaan de trommel in op 200 graden, zakken naar 90, worden geel na bijna 5 minuten, kraken voor het eerst na ruim 9 minuten en gaan er na 11 minuten 40 uit op 205 graden.">
-            <defs>
-              <linearGradient id="roast" gradientUnits="userSpaceOnUse" x1="60" y1="0" x2="1160" y2="0">
-                <stop offset="0" stop-color="#8E9A6A"/>
-                <stop offset=".38" stop-color="#C8A24A"/>
-                <stop offset=".62" stop-color="#B8742A"/>
-                <stop offset=".85" stop-color="#6B3A1E"/>
-                <stop offset="1" stop-color="#2B1D14"/>
-              </linearGradient>
-            </defs>
-            <g class="grid" id="grid"></g>
-            <g class="axis" id="axis"></g>
-            <g id="marks"></g>
-            <path id="line" fill="none" stroke="url(#roast)" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
-            <circle id="dot" r="9" fill="#2B1D14" stroke="#E4E7D6" stroke-width="3" opacity="0"/>
-          </svg>
-        </div>
-      </figure>
-    </div>
-  </section>
-
-  <section id="koffie">
-    <div class="wrap">
-      <div class="head">
-        <h2>Deze week uit de trommel</h2>
-        <p>Zes bonen, elk met een eigen brandprofiel. We betalen gemiddeld 2,4 keer de beursprijs en proeven elke partij blind voordat hij erin mag.</p>
-      </div>
-      <div class="filters" role="group" aria-label="Filter op smaak">
-        <button class="chip" aria-pressed="true" data-filter="alle">Alles</button>
-        <button class="chip" aria-pressed="false" data-filter="fruitig">Fruitig</button>
-        <button class="chip" aria-pressed="false" data-filter="chocolade">Chocolade</button>
-        <button class="chip" aria-pressed="false" data-filter="espresso">Voor espresso</button>
-      </div>
-      <ul class="beans" id="beans"></ul>
-    </div>
-  </section>
-
-  <section id="week">
-    <div class="wrap">
-      <div class="head">
-        <h2>Zo gaat een week</h2>
-        <p>Nooit op voorraad. Wat je bestelt voor maandagavond, zit vrijdag in je brievenbus.</p>
-      </div>
-      <ol class="week" style="list-style:none;padding:0;margin:0">
-        <li class="day"><h3>Maandag</h3><p class="what">Proeven</p><p>We cuppen elke nieuwe partij blind. Onder de 85 punten gaat hij terug.</p></li>
-        <li class="day"><h3>Dinsdag</h3><p class="what">Branden</p><p>Batches van 12 kilo. Henk draait vanaf zes uur 's ochtends.</p></li>
-        <li class="day"><h3>Woensdag</h3><p class="what">Rusten</p><p>De bonen ontgassen een dag. Daarna wegen en met de hand sealen.</p></li>
-        <li class="day"><h3>Donderdag</h3><p class="what">Versturen</p><p>PostNL haalt om vier uur op, in zakken die bij het gft mogen.</p></li>
-        <li class="day you"><h3>Vrijdag</h3><p class="what">Bij jou</p><p>Op de mat, met een briefje over de boer en hoe je hem zet.</p></li>
-      </ol>
-    </div>
-  </section>
-
-  <section class="sub" id="abonnement">
-    <div class="wrap">
-      <div class="intro">
-        <h2>Elke keer een andere boon</h2>
-        <p>Wij kiezen, jij proeft. Pauzeren of stoppen doe je zelf in je account, wanneer je wilt.</p>
-        <ul>
-          <li>Eerste maand voor €9</li>
-          <li>15% korting op elke zak</li>
-          <li>Verzending altijd gratis</li>
-        </ul>
-      </div>
-      <form id="signup" novalidate>
-        <fieldset>
-          <legend>Hoe vaak wil je koffie?</legend>
-          <div class="freq">
-            <input type="radio" name="freq" id="f1" value="week"><label for="f1"><b>Elke week</b>250 gram</label>
-            <input type="radio" name="freq" id="f2" value="2weken" checked><label for="f2"><b>Om de week</b>500 gram</label>
-            <input type="radio" name="freq" id="f4" value="maand"><label for="f4"><b>Elke maand</b>1 kilo</label>
+        <div class="quote" aria-live="polite">
+          <p class="name" id="foil-name">Racing groen, glans</p>
+          <p class="price">€2.450 <small>volledige wrap, vanaf</small></p>
+          <div class="actions">
+            <button class="btn ghost" type="button" id="drive" aria-pressed="false">Rij een rondje</button>
+            <a class="btn" href="#afspraak">Plan een intake</a>
           </div>
-        </fieldset>
-        <div class="field">
-          <label for="naam">Naam</label>
-          <input id="naam" name="naam" autocomplete="name" aria-describedby="naam-err">
-          <span class="error" id="naam-err" aria-live="polite"></span>
-        </div>
-        <div class="field">
-          <label for="email">E-mailadres</label>
-          <input id="email" name="email" type="email" autocomplete="email" inputmode="email" aria-describedby="email-err">
-          <span class="error" id="email-err" aria-live="polite"></span>
-        </div>
-        <button class="btn" type="submit">Start voor €9</button>
-        <div class="success" role="status">
-          <h3>Gestart, <span id="who"></span></h3>
-          <p>Je eerste zak gaat dinsdag de trommel in. De bevestiging staat in je mail.</p>
         </div>
       </form>
     </div>
   </section>
 
-  <section class="visit" id="bezoek">
+  <section id="volgen">
+    <div class="wrap follow">
+      <div class="copy">
+        <h2>Volg je auto in de werkplaats</h2>
+        <p>Tijdens de wrap krijg je foto's en korte updates op je telefoon. Zo weet je precies waar we zijn en wanneer je hem kunt ophalen.</p>
+      </div>
+      <div class="phone-scene">
+        <div class="phone" id="phone">
+          <div class="screen">
+            <span class="island" aria-hidden="true"></span>
+            <div class="status" aria-hidden="true"><span>9:41</span><span>5G</span></div>
+            <div class="app-head"><i aria-hidden="true"></i><div><b>Omkleur werkplaats</b><span>Jouw wrap, GX-482-T</span></div></div>
+            <div class="feed" id="feed">
+              <div class="msg"><time>Dinsdag 08:10</time>Je auto is binnen. We beginnen met wassen en ontvetten.</div>
+              <div class="msg"><time>Dinsdag 13:45</time>Bumpers en spiegelkappen zijn eraf. De folie ligt klaar: <b id="feed-foil">Racing groen, glans</b>.</div>
+              <div class="msg pic"><div class="ph" aria-hidden="true"></div><p><time>Woensdag 16:20</time>Motorkap en dak zitten erop.</p></div>
+              <div class="msg me">Mooi! Kan ik vrijdag ophalen?</div>
+              <div class="msg"><time>Donderdag 11:02</time>Ja, vrijdag vanaf 15:00. Je krijgt dan ook uitleg over wassen.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
     <div class="wrap">
-      <div>
-        <h2>Kom proeven</h2>
-        <address>Noorderhaven 42<br>9712 VM Groningen</address>
-        <p style="margin-top:16px;color:var(--ink-soft);max-width:40ch">Elke zaterdag om 11:00 een gratis cupping aan de grote tafel. Aanmelden hoeft niet.</p>
+      <div class="head">
+        <h2>Zo werkt een wrap</h2>
+        <p>Een volledige wrap duurt drie tot vier werkdagen. Je lak blijft eronder beschermd en de folie kan er later weer af.</p>
       </div>
-      <div class="hours" id="hours">
-        <div data-day="2"><span>Dinsdag tot en met vrijdag</span><span>08:00 tot 16:00</span></div>
-        <div data-day="6"><span>Zaterdag</span><span>09:00 tot 17:00</span></div>
-        <div data-day="0"><span>Zondag en maandag</span><span>Gesloten</span></div>
+      <ol class="steps">
+        <li><h3>Intake</h3><p>We bekijken je lak, laten stalen zien in daglicht en maken een vaste prijs.</p></li>
+        <li><h3>Voorbereiden</h3><p>Wassen, kleien en ontvetten. Bumpers, grepen en emblemen gaan eraf.</p></li>
+        <li><h3>Wrappen</h3><p>Paneel voor paneel, met naden waar je ze niet ziet. Randen worden ingepakt.</p></li>
+        <li><h3>Ophalen</h3><p>Een nacht drogen in de werkplaats, controle en uitleg over wassen.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="prijzen">
+    <div class="wrap">
+      <div class="head">
+        <h2>Prijzen</h2>
+        <p>Vanafprijzen voor een middenklasser. Na de intake krijg je een vaste prijs voor jouw auto.</p>
       </div>
+      <table class="prices">
+        <tbody>
+          <tr><td>Volledige wrap</td><td>Alle zichtbare panelen. Deurstijlen en instaplijsten op aanvraag.</td><td>€2.450</td></tr>
+          <tr><td>Dak en spiegelkappen</td><td>Zwart, carbon of in een contrastkleur.</td><td>€395</td></tr>
+          <tr><td>Dechrome</td><td>Chromen lijsten en grille in mat of glans zwart.</td><td>€295</td></tr>
+          <tr><td>Beschermfolie</td><td>Transparante folie op voorkant en motorkap tegen steenslag.</td><td>€1.150</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="book" id="afspraak">
+    <div class="wrap">
+      <div class="copy">
+        <h2>Plan een intake</h2>
+        <p>Een half uur in de werkplaats aan de Zernikelaan. We bekijken je auto en je kiest de folie met echte stalen in de hand.</p>
+      </div>
+      <form id="booking" novalidate>
+        <div class="field">
+          <label class="lbl" for="kenteken">Kenteken</label>
+          <div class="plate" id="plate">
+            <span class="eu" aria-hidden="true"><svg viewBox="0 0 26 26"><g fill="#F2C200"></g></svg>NL</span>
+            <input id="kenteken" name="kenteken" placeholder="GX-482-T" autocomplete="off" maxlength="8" aria-describedby="kenteken-err">
+          </div>
+          <p class="error" id="kenteken-err" aria-live="polite"></p>
+        </div>
+        <div class="field">
+          <label class="lbl" for="email">E-mailadres</label>
+          <input id="email" name="email" type="email" autocomplete="email" aria-describedby="email-err">
+          <p class="error" id="email-err" aria-live="polite"></p>
+        </div>
+        <div class="field">
+          <label class="lbl" for="dag">Voorkeursdag</label>
+          <select id="dag" name="dag">
+            <option>Maandag</option><option>Dinsdag</option><option>Woensdag</option><option>Donderdag</option><option>Vrijdag</option><option>Zaterdag</option>
+          </select>
+        </div>
+        <button class="btn" type="submit">Plan intake</button>
+        <div class="success" role="status">
+          <h3>Intake gepland</h3>
+          <p>We sturen een bevestiging met de tijd naar <span id="who"></span>. Neem je kentekenbewijs mee.</p>
+        </div>
+      </form>
     </div>
   </section>
 </main>
 
 <footer>
   <div class="wrap">
-    <span>© <span id="year"></span> Noorderlicht Koffiebranderij</span>
-    <span>Een fictief bedrijf, gemaakt als demo.</span>
+    <span>Omkleur is een fictief bedrijf, gemaakt als demo.</span>
+    <span>3D-model: <a href="https://sketchfab.com/models/57bf6cc56931426e87494f554df1dab6">Ferrari 458 Italia door vicent091036</a>, via de three.js-voorbeelden.</span>
   </div>
 </footer>
 
-<div class="toast" id="toast" role="status" aria-live="polite"><span id="toast-text">In je mand</span><b id="cart-count">0</b></div>
-
 <script>
-  /* Roast curve */
-  const narrow = matchMedia("(max-width: 640px)").matches;
-  const W = narrow ? 600 : 1200, H = narrow ? 440 : 380;
-  const X0 = 60, X1 = W - 40, Y0 = H - 50, Y1 = 30, TMAX = 12, TLO = 80, THI = 220, END = 11 + 40 / 60;
-  const x = t => X0 + t / TMAX * (X1 - X0);
-  const y = T => Y0 - (T - TLO) / (THI - TLO) * (Y0 - Y1);
-  const temp = t => t < 1.5
-    ? 90 + 110 * (1 - t / 1.5) ** 2
-    : 90 + 115 * (1 - Math.exp(-(t - 1.5) / 6)) / (1 - Math.exp(-(END - 1.5) / 6));
-  const timeAt = T => { let t = 1.5; while (temp(t) < T) t += .005; return t; };
-  const fmt = t => `${Math.floor(t)}:${String(Math.round(t % 1 * 60)).padStart(2, "0")}`;
-  const NS = "http://www.w3.org/2000/svg";
-  const el = (tag, attrs, text) => { const n = document.createElementNS(NS, tag); for (const k in attrs) n.setAttribute(k, attrs[k]); if (text) n.textContent = text; return n; };
+  /* EU stars on the plate */
+  document.querySelector(".plate .eu g").innerHTML = Array.from({ length: 12 }, (_, i) => {
+    const a = i / 12 * Math.PI * 2;
+    return `<circle cx="${(13 + Math.cos(a) * 9).toFixed(2)}" cy="${(13 + Math.sin(a) * 9).toFixed(2)}" r="1.4"/>`;
+  }).join("");
 
-  const chart = document.getElementById("chart");
-  chart.setAttribute("viewBox", `0 0 ${W} ${H}`);
-  const grad = document.getElementById("roast"); grad.setAttribute("x2", X1);
-  const grid = document.getElementById("grid"), axis = document.getElementById("axis");
-  for (let T = 100; T <= 220; T += 40) {
-    grid.append(el("line", { x1: X0, x2: X1, y1: y(T), y2: y(T) }));
-    axis.append(el("text", { x: X0 - 10, y: y(T) + 5, "text-anchor": "end" }, T + "°"));
-  }
-  for (let m = 0; m <= 12; m += narrow ? 4 : 2) axis.append(el("text", { x: x(m), y: Y0 + 30, "text-anchor": "middle" }, m + " min"));
-
-  const pts = [];
-  for (let t = 0; t <= END + 1e-9; t += 0.02) pts.push([x(t), y(temp(t))]);
-  const line = document.getElementById("line");
-  line.setAttribute("d", "M" + pts.map(p => p.map(v => v.toFixed(1)).join(" ")).join("L"));
-
-  const marks = [
-    { t: 1.5, label: "Omslagpunt", drop: 60, anchor: "start" },
-    { t: timeAt(150), label: "Geel", drop: -60, anchor: "middle" },
-    { t: timeAt(196), label: "Eerste kraak", drop: 70, anchor: "end" },
-    { t: END, label: "Uit de trommel", drop: 140, anchor: "end" },
-  ].map(m => {
-    const g = el("g", { class: "mark" }), px = x(m.t), py = y(temp(m.t)), dir = Math.sign(m.drop);
-    const lx = m.anchor === "start" ? px - 4 : m.anchor === "end" ? px + 4 : px;
-    g.append(el("line", { x1: px, x2: px, y1: py + 14 * dir, y2: py + m.drop }));
-    g.append(el("text", { x: lx, y: py + m.drop + (dir > 0 ? 22 : -8), "text-anchor": m.anchor }, `${m.label}, ${fmt(m.t)}`));
-    document.getElementById("marks").append(g);
-    return { ...m, g };
-  });
-
-  const dot = document.getElementById("dot"), tempOut = document.getElementById("temp"), clock = document.getElementById("clock");
-  const len = line.getTotalLength();
-  const show = p => {
-    const t = p * END, at = line.getPointAtLength(p * len);
-    line.style.strokeDasharray = len; line.style.strokeDashoffset = len * (1 - p);
-    dot.setAttribute("cx", at.x); dot.setAttribute("cy", at.y); dot.setAttribute("opacity", 1);
-    tempOut.textContent = Math.round(temp(t)); clock.textContent = fmt(t);
-    marks.forEach(m => m.g.classList.toggle("on", t >= m.t - 1e-6));
-  };
-  if (matchMedia("(prefers-reduced-motion: reduce)").matches) show(1);
-  else {
-    const DUR = 3600; let start;
-    const ease = p => 1 - (1 - p) ** 2;
-    const step = now => { start ??= now; const p = Math.min((now - start) / DUR, 1); show(ease(p)); if (p < 1) requestAnimationFrame(step); };
-    show(0); setTimeout(() => requestAnimationFrame(step), 350);
-  }
-
-  /* Coffee list */
-  const coffees = [
-    { name: "Guji Hambela", origin: "Ethiopië, natural, 2.200 m", notes: "bosbes, jasmijn, melkchocolade", roast: 30, price: "14,50", tags: ["fruitig"], tag: "Batch 214" },
-    { name: "Huila Esperanza", origin: "Colombia, washed, 1.750 m", notes: "rode appel, karamel, cacao", roast: 50, price: "12,90", tags: ["chocolade"] },
-    { name: "Nyeri Gatomboya", origin: "Kenia, washed, 1.900 m", notes: "zwarte bes, grapefruit, rietsuiker", roast: 35, price: "16,50", tags: ["fruitig"], tag: "Nog 40 zakken" },
-    { name: "Henk's huismelange", origin: "Brazilië en Guatemala", notes: "hazelnoot, pure chocolade, toffee", roast: 75, price: "11,50", tags: ["chocolade", "espresso"] },
-    { name: "Nyamasheke", origin: "Rwanda, washed, 1.800 m", notes: "perzik, hibiscus, honing", roast: 40, price: "14,90", tags: ["fruitig"] },
-    { name: "Nachtbrander", origin: "Brazilië, pulped natural", notes: "dadel, cacaonibs, melasse", roast: 90, price: "12,50", tags: ["espresso", "chocolade"] },
+  /* Foils */
+  const FOILS = [
+    { id: "groen", name: "Racing groen", hex: "#1F4A36" },
+    { id: "nardo", name: "Nardo grijs", hex: "#8A8F91" },
+    { id: "olijf", name: "Olijf", hex: "#5F6B4A" },
+    { id: "ijs", name: "IJsblauw", hex: "#9FBFCD" },
+    { id: "geel", name: "Signaalgeel", hex: "#E3B200" },
+    { id: "kers", name: "Kersenrood", hex: "#8E1B24" },
   ];
-  const ramp = [[0, [200, 162, 74]], [.5, [184, 116, 42]], [.75, [107, 58, 30]], [1, [43, 29, 20]]];
-  const roastColor = r => {
-    const p = r / 100; let i = 0; while (p > ramp[i + 1][0]) i++;
-    const [a, ca] = ramp[i], [b, cb] = ramp[i + 1], k = (p - a) / (b - a);
-    return `rgb(${ca.map((c, j) => Math.round(c + (cb[j] - c) * k)).join(",")})`;
-  };
-  const roastName = r => r < 40 ? "Licht" : r < 60 ? "Medium" : r < 85 ? "Donker" : "Heel donker";
-  const beans = document.getElementById("beans");
-  beans.innerHTML = coffees.map((c, i) => `
-    <li class="bean" data-tags="${c.tags.join(" ")}">
-      <svg class="bean-dot" viewBox="0 0 44 56" aria-hidden="true"><ellipse cx="22" cy="28" rx="18" ry="25" fill="${roastColor(c.roast)}"/><path d="M22 5c-7 10 7 36 0 46" stroke="rgba(0,0,0,.35)" stroke-width="3" fill="none" stroke-linecap="round"/></svg>
-      <div><h3>${c.name}${c.tag ? `<span class="tag">${c.tag}</span>` : ""}</h3><p class="origin">${c.origin}</p></div>
-      <p class="notes">${c.notes}</p>
-      <p class="roastlvl"><b>${roastName(c.roast)}</b>gebrand</p>
-      <div class="buy"><p class="price">€${c.price} <small>250 g</small></p><button class="add" data-i="${i}" aria-label="${c.name} in je mand">In mand</button></div>
-    </li>`).join("");
+  document.getElementById("swatches").innerHTML = FOILS.map((f, i) =>
+    `<input type="radio" name="foil" id="foil-${f.id}" value="${i}" ${i ? "" : "checked"}><label for="foil-${f.id}"><i style="background:${f.hex}"></i>${f.name}</label>`
+  ).join("");
 
-  document.querySelectorAll(".chip").forEach(chip => chip.addEventListener("click", () => {
-    document.querySelectorAll(".chip").forEach(c => c.setAttribute("aria-pressed", c === chip));
-    const f = chip.dataset.filter;
-    beans.querySelectorAll(".bean").forEach(b => { b.hidden = f !== "alle" && !b.dataset.tags.split(" ").includes(f); });
-  }));
-
-  let count = 0, toastTimer;
-  const toast = document.getElementById("toast");
-  beans.addEventListener("click", e => {
-    const btn = e.target.closest(".add"); if (!btn) return;
-    count++;
-    document.getElementById("cart-count").textContent = count;
-    document.getElementById("toast-text").textContent = `${coffees[btn.dataset.i].name} ligt in je mand`;
-    toast.classList.add("show");
-    btn.classList.add("done"); btn.textContent = "In je mand";
-    setTimeout(() => { btn.classList.remove("done"); btn.textContent = "In mand"; }, 1600);
-    clearTimeout(toastTimer); toastTimer = setTimeout(() => toast.classList.remove("show"), 2800);
+  const config = document.getElementById("config");
+  config.addEventListener("change", () => {
+    const f = FOILS[+config.foil.value], finish = config.finish.value, label = `${f.name}, ${finish}`;
+    document.documentElement.style.setProperty("--foil", f.hex);
+    document.getElementById("foil-name").textContent = label;
+    document.getElementById("feed-foil").textContent = label;
+    window.dispatchEvent(new CustomEvent("foil", { detail: { hex: f.hex, finish } }));
   });
 
-  /* Subscription form */
-  const form = document.getElementById("signup");
-  form.addEventListener("submit", e => {
+  /* Phone: tilts upright while scrolling into view, messages arrive once */
+  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const phone = document.getElementById("phone");
+  const msgs = [...document.querySelectorAll("#feed .msg")];
+  if (!reduce) {
+    msgs.forEach(m => m.classList.add("wait"));
+    const tilt = () => {
+      const r = phone.getBoundingClientRect();
+      const p = Math.min(Math.max(1 - (r.top + r.height / 2 - innerHeight / 2) / (innerHeight * .8), 0), 1);
+      phone.style.transform = `translateY(${(1 - p) * 120}px) rotate(${(1 - p) * -14}deg) scale(${.9 + p * .1})`;
+    };
+    tilt(); addEventListener("scroll", tilt, { passive: true }); addEventListener("resize", tilt);
+    new IntersectionObserver((entries, io) => {
+      if (!entries[0].isIntersecting) return;
+      io.disconnect();
+      msgs.forEach((m, i) => setTimeout(() => m.classList.remove("wait"), 300 + i * 650));
+    }, { threshold: .35 }).observe(phone);
+  }
+
+  /* Booking form */
+  const booking = document.getElementById("booking");
+  booking.kenteken.addEventListener("input", e => { e.target.value = e.target.value.toUpperCase().replace(/[^A-Z0-9-]/g, ""); });
+  booking.addEventListener("submit", e => {
     e.preventDefault();
-    const setErr = (input, msg) => { input.setAttribute("aria-invalid", !!msg); document.getElementById(input.id + "-err").textContent = msg; };
-    setErr(form.naam, form.naam.value.trim() ? "" : "Vul je naam in.");
-    setErr(form.email, /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email.value) ? "" : "Vul een e-mailadres in zoals naam@voorbeeld.nl.");
-    const bad = form.querySelector('[aria-invalid="true"]');
-    if (bad) { bad.focus(); return; }
-    document.getElementById("who").textContent = form.naam.value.trim().split(" ")[0];
-    form.classList.add("sent");
+    const k = booking.kenteken, m = booking.email;
+    const kOk = /^[A-Z0-9-]+$/.test(k.value) && k.value.replace(/-/g, "").length === 6;
+    const mOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(m.value);
+    k.setAttribute("aria-invalid", !kOk); document.getElementById("plate").dataset.invalid = !kOk;
+    document.getElementById("kenteken-err").textContent = kOk ? "" : "Vul een Nederlands kenteken in van zes tekens, zoals GX-482-T.";
+    m.setAttribute("aria-invalid", !mOk);
+    document.getElementById("email-err").textContent = mOk ? "" : "Vul een e-mailadres in zoals naam@voorbeeld.nl.";
+    if (!kOk) return k.focus();
+    if (!mOk) return m.focus();
+    document.getElementById("who").textContent = m.value;
+    booking.classList.add("sent");
+  });
+</script>
+
+<script type="module">
+  import * as THREE from "three";
+  import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
+  import { DRACOLoader } from "three/addons/loaders/DRACOLoader.js";
+  import { RoomEnvironment } from "three/addons/environments/RoomEnvironment.js";
+
+  const canvas = document.getElementById("car"), msg = document.getElementById("stage-msg");
+  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const FINISH = {
+    mat:    { roughness: .78, clearcoat: 0,   clearcoatRoughness: 1 },
+    satijn: { roughness: .42, clearcoat: .35, clearcoatRoughness: .35 },
+    glans:  { roughness: .2,  clearcoat: 1,   clearcoatRoughness: .03 },
+  };
+
+  let renderer;
+  try { renderer = new THREE.WebGLRenderer({ canvas, antialias: true }); }
+  catch { msg.textContent = "Je browser kan de 3D-auto niet tonen. Kleuren kiezen werkt wel."; throw new Error("WebGL niet beschikbaar"); }
+  renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+  renderer.toneMapping = THREE.ACESFilmicToneMapping;
+  renderer.toneMappingExposure = .9;
+
+  const floor = new THREE.Color("#D9DCDD");
+  const scene = new THREE.Scene();
+  scene.background = floor;
+  scene.fog = new THREE.Fog(floor, 7, 13);
+  scene.environment = new THREE.PMREMGenerator(renderer).fromScene(new RoomEnvironment(), .04).texture;
+
+  const camera = new THREE.PerspectiveCamera(32, 1, .1, 100);
+  const grid = new THREE.GridHelper(30, 60, 0x1E252B, 0x1E252B);
+  grid.material.opacity = .12; grid.material.transparent = true; grid.material.depthWrite = false;
+  const floorGroup = new THREE.Group(); floorGroup.add(grid); scene.add(floorGroup);
+
+  const body = new THREE.MeshPhysicalMaterial({ color: "#1F4A36", metalness: .35, ...FINISH.glans });
+  const details = new THREE.MeshStandardMaterial({ color: 0x2A2F33, metalness: 1, roughness: .45 });
+  const glass = new THREE.MeshPhysicalMaterial({ color: 0x9AA4AA, metalness: .25, roughness: 0, transmission: 1 });
+
+  const draco = new DRACOLoader().setDecoderPath("https://cdn.jsdelivr.net/npm/three@0.179.1/examples/jsm/libs/draco/gltf/");
+  const loader = new GLTFLoader().setDRACOLoader(draco);
+  const pivot = new THREE.Group(); scene.add(pivot);
+  const wheels = [];
+
+  loader.load("models/ferrari.glb", gltf => {
+    const car = gltf.scene.children[0];
+    car.getObjectByName("body").material = body;
+    ["rim_fl", "rim_fr", "rim_rr", "rim_rl", "trim"].forEach(n => car.getObjectByName(n).material = details);
+    car.getObjectByName("glass").material = glass;
+    ["wheel_fl", "wheel_fr", "wheel_rl", "wheel_rr"].forEach(n => wheels.push(car.getObjectByName(n)));
+    const shadow = new THREE.Mesh(
+      new THREE.PlaneGeometry(.655 * 4, 1.3 * 4),
+      new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load("models/ferrari_ao.png"), blending: THREE.MultiplyBlending, toneMapped: false, transparent: true, premultipliedAlpha: true })
+    );
+    shadow.rotation.x = -Math.PI / 2; shadow.renderOrder = 2;
+    car.add(shadow);
+    pivot.add(car);
+    msg.hidden = true;
+  }, undefined, () => { msg.textContent = "De 3D-auto kon niet laden. Open de pagina via een webserver, niet als los bestand."; });
+
+  /* Size and framing: further away on narrow screens */
+  const resize = () => {
+    const w = canvas.clientWidth, h = canvas.clientHeight, a = w / h;
+    renderer.setSize(w, h, false);
+    camera.aspect = a;
+    const dist = a < 1 ? 10 : a < 1.6 ? 7 : 5.6;
+    camera.position.set(dist * .66, dist * .24, -dist * .72);
+    camera.lookAt(0, .45, 0);
+    camera.updateProjectionMatrix();
+  };
+  new ResizeObserver(resize).observe(canvas);
+
+  /* Drag to turn */
+  let yaw = 0, vel = 0, dragging = false, lastX = 0, idle = 0;
+  canvas.addEventListener("pointerdown", e => { dragging = true; lastX = e.clientX; canvas.setPointerCapture(e.pointerId); });
+  canvas.addEventListener("pointermove", e => { if (!dragging) return; const dx = e.clientX - lastX; lastX = e.clientX; yaw += dx * .008; vel = dx * .008; idle = 0; });
+  addEventListener("pointerup", () => dragging = false);
+  canvas.addEventListener("pointercancel", () => dragging = false);
+
+  /* Foil change: blend colour and finish */
+  let from = body.color.clone(), to = body.color.clone(), fromF = { ...FINISH.glans }, toF = { ...FINISH.glans }, t0 = -1;
+  addEventListener("foil", e => {
+    from = body.color.clone(); to = new THREE.Color(e.detail.hex);
+    fromF = { roughness: body.roughness, clearcoat: body.clearcoat, clearcoatRoughness: body.clearcoatRoughness };
+    toF = FINISH[e.detail.finish]; t0 = performance.now();
   });
 
-  /* Today's hours */
-  const d = new Date().getDay();
-  document.querySelector(`#hours [data-day="${d === 0 || d === 1 ? 0 : d === 6 ? 6 : 2}"]`).classList.add("today");
-  document.getElementById("year").textContent = new Date().getFullYear();
+  /* Drive: wheels turn and the floor rolls under the car */
+  let driving = false, speed = 0, travel = 0;
+  const driveBtn = document.getElementById("drive");
+  driveBtn.addEventListener("click", () => {
+    driving = !driving;
+    driveBtn.setAttribute("aria-pressed", driving);
+    driveBtn.textContent = driving ? "Stoppen" : "Rij een rondje";
+  });
 
-  const nav = document.getElementById("nav");
-  addEventListener("scroll", () => nav.classList.toggle("scrolled", scrollY > 8), { passive: true });
+  const clock = new THREE.Clock();
+  renderer.setAnimationLoop(() => {
+    const dt = Math.min(clock.getDelta(), .05);
+    if (t0 >= 0) {
+      const k = reduce ? 1 : Math.min((performance.now() - t0) / 700, 1), e = 1 - (1 - k) ** 3;
+      body.color.copy(from).lerp(to, e);
+      for (const p in toF) body[p] = fromF[p] + (toF[p] - fromF[p]) * e;
+      if (k === 1) t0 = -1;
+    }
+    if (!dragging) {
+      idle += dt; vel *= .92; yaw += vel;
+      if (!reduce && !driving && idle > 2.5) yaw += dt * .18;
+    }
+    speed += ((driving ? 1 : 0) - speed) * Math.min(dt * 2.5, 1);
+    travel += speed * dt * 9;
+    wheels.forEach(w => w.rotation.x = -travel / .34);
+    pivot.rotation.y = yaw;
+    floorGroup.rotation.y = yaw;
+    grid.position.z = travel % .5;
+    renderer.render(scene, camera);
+  });
 </script>
 </body>
 </html>
