@@ -445,7 +445,6 @@
   const phone = document.getElementById("phone");
   const msgs = [...document.querySelectorAll("#feed .msg")];
   if (!reduce) {
-    msgs.forEach(m => m.classList.add("wait"));
     const tilt = () => {
       const r = phone.getBoundingClientRect();
       const p = Math.min(Math.max(1 - (r.top + r.height / 2 - innerHeight / 2) / (innerHeight * .8), 0), 1);
@@ -455,6 +454,7 @@
     new IntersectionObserver((entries, io) => {
       if (!entries[0].isIntersecting) return;
       io.disconnect();
+      msgs.forEach(m => m.classList.add("wait"));
       msgs.forEach((m, i) => setTimeout(() => m.classList.remove("wait"), 300 + i * 650));
     }, { threshold: .35 }).observe(phone);
   }
@@ -537,7 +537,7 @@
   const wheels = [], doors = [], lights = {};
   let paint;
 
-  const draco = new DRACOLoader().setDecoderPath("https://cdn.jsdelivr.net/npm/three@0.179.1/examples/jsm/libs/draco/gltf/");
+  const draco = new DRACOLoader().setDecoderPath("draco/").setDecoderConfig({ type: "js" });
   new GLTFLoader().setDRACOLoader(draco).load("models/omkleur-car.glb", gltf => {
     const root = gltf.scene;
     root.traverse(o => {
